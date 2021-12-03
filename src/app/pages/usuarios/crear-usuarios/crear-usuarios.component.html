@@ -1,0 +1,18 @@
+<h2 class="text-center">
+    Crear Usuario
+</h2>
+
+<form [formGroup]="usuarioForm" (ngSubmit)="crearUsuario()">
+
+    <app-formulario-component></app-formulario-component>
+
+    <div class="row justify-content-center text-end">
+
+        <div class="col-4">
+
+            <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">Crear Usuario</button>
+
+        </div>
+    </div>
+
+</form>

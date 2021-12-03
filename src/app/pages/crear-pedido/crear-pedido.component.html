@@ -1,0 +1,78 @@
+<div class="row text-center" >
+    <h2>
+        Ingrese los datos de envío:
+    </h2>
+</div>
+
+<form [formGroup]="formPedido" (ngSubmit)="hacerPedido($event)">
+
+    <div class="row">
+        <div class="col-4 text-end">
+            <label for="calle">Calle:</label>
+        </div>
+        <div class="col-4">
+            <input class="form-control" type="text" formControlName="calle">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 text-end">
+            <label for="numero">Número:</label>
+        </div>
+        <div class="col-4">
+            <input class="form-control" type="text" formControlName="numero">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 text-end">
+            <label for="provincia">Provincia:</label>
+        </div>
+        <div class="col-4">
+            <input class="form-control" type="text" formControlName="provincia">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 text-end">
+            <label for="poblacion">Población:</label>
+        </div>
+        <div class="col-4">
+            <input class="form-control" type="text" formControlName="poblacion">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 text-end">
+            <label for="codigo_postal">Código Postal:</label>
+        </div>
+        <div class="col-4">
+            <input class="form-control" type="text" formControlName="codigo_postal">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 text-end">
+            <label for="telefono">Telefono:</label>
+        </div>
+        <div class="col-4">
+            <input class="form-control" type="number" formControlName="telefono">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 text-end">
+            <label for="contacto">Persona de Contacto:</label>
+        </div>
+        <div class="col-4">
+            <input class="form-control" type="text" formControlName="contacto">
+        </div>
+    </div>
+
+    <div class="row text-end">
+        <div class="col-8">
+            <button type="submit" class="btn btn-info" [disabled]="formPedido.invalid">Confirmar pedido</button>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,164 @@
+<form [formGroup]="actualizarArticuloForm" (ngSubmit)="actualizar()">
+    <div class="row">
+
+        <div class="col-8">
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="articulo">Nombre del artículo:</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text" formControlName="articulo">
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="descripcion">Descripción:</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text" formControlName="descripcion">
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="fabricante">Fabricante:</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text" formControlName="fabricante">
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="peso">Peso (en Kg.):</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="number" formControlName="peso">
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="largo">Largo (en mts.):</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="number" formControlName="largo">
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="ancho">Ancho (en mts.):</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="number" formControlName="ancho">
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="alto">Alto (en mts.):</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="number" formControlName="alto">
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="precio">Precio:</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="number" formControlName="precio">
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-6 text-end">
+                    <label for="precio" class="">Stock actual:</label>
+                </div>
+                <div class="col-6 text-end">
+                    <label for="precio" class="">Añadir Stock:</label>
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="precio">Stock almacén 1:</label>
+                </div>
+                <div class="col-2 stock">
+                    <input class="form-control" type="number" formControlName="stock1v" readonly>
+                </div>
+                <div class="col-6">
+                    <input class="form-control" type="number" formControlName="stock1">
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="precio">Stock almacén 2:</label>
+                </div>
+                <div class="col-2 stock">
+                    <input class="form-control" type="number" formControlName="stock2v" readonly>
+                </div>
+                <div class="col-6">
+                    <input class="form-control" type="number" formControlName="stock2">
+                </div>
+            </div>
+
+            <div class="row inputs ">
+                <div class="col-4">
+                    <label for="precio">Stock almacén 3:</label>
+                </div>
+                <div class="col-2 stock">
+                    <input class="form-control" type="number" formControlName="stock3v" readonly>
+                </div>
+                <div class="col-6">
+                    <input class="form-control" type="number" formControlName="stock3">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                    <button type="submit" class="btn btn-warning" [disabled]="actualizarArticuloForm.invalid || articulo.iD_ESTADO_ARTICULO == 2">Actualizar</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-danger" [disabled]="articulo.iD_ESTADO_ARTICULO == 2" (click)="borrarArticulo()">Borrar</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-4 justify-content-center">
+            <div class="row">
+
+                <div class="col-8">
+                    <img class="text-end" [src]="imagen.imagen" tab="imagen" width="200px" height="200px" #img>
+                </div>
+                <input [ngClass]="(perfil == 1)?  'visible': 'invisible'" class="form-control" type="file" alt="articulo" accept="image/png, image/jpeg" formControlName="imagen" (change)="establecerImagen( $event.target )">
+
+            </div>
+            <div class="carrito row">
+
+                <div class="row">
+                    <div class="col">
+                        <label for="">Cantidad a añadir:</label>
+                    </div>
+
+                    <div class="col">
+                        <input class="form-control" type="number" formControlName="anadir">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <button type="submit" class="btn btn-success" [disabled]="actualizarArticuloForm.get('anadir')?.invalid" (click)="agregarArticulo( $event )">Añadir al carrito</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

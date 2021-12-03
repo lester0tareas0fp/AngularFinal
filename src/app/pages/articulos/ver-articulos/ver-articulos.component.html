@@ -1,0 +1,25 @@
+<div class="row">
+
+    <div class="col-xl-3 col-md-4 col-sm-6" *ngFor="let articulo of articulos; index as i ">
+
+        <div class="articulos card" style="width: 15rem; height:10rem" [routerLink]="['/articulos/actualizar']" [queryParams]="{id_articulo: articulo.iD_ARTICULO}" routerLinkActive="true">
+
+            <div class="card-header">
+                {{articulo.articulo}}
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col">
+                        <img [src]="img[articulo.iD_ARTICULO]" width="50" height="50">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

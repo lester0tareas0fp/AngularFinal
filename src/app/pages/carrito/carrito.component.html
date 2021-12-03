@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-3">
+        cantidad
+    </div>
+    <div class="col">
+        articulo
+    </div>
+</div>
+
+
+
+<div class="row" *ngFor="let carrito of carritos">
+    <div class="col-3">
+        <img [src]="carrito.imagen" alt="" width="50px" height="50px">
+    </div>
+    <div class="col-3">
+        {{ carrito.cantidad }}
+    </div>
+    <div class="col-3">
+        {{ carrito.nombre_articulo }}
+    </div>
+</div>
+
+
+
+
+
+
+<div class="row">
+
+    <div class="col-9">
+        <button type="button" class="btn btn-success float-end" [routerLink]="['/crear-pedido']" routerLinkActive="true">
+               Crear pedido
+        </button>
+    </div>
+
+    <div class="col-3">
+        <button type="button" class="btn btn-danger" (click)="vaciarCarrito()">
+                Vaciar carrito
+        </button>
+    </div>
+
+</div>

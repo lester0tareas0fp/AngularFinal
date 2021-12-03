@@ -1,0 +1,15 @@
+.continuar {
+    color: rgb(55, 146, 55);
+    border-color: rgb(55, 146, 55);
+    border-width: 2px;
+}
+
+.crear {
+    color: rgb(93, 163, 228);
+    border-color: rgb(93, 163, 228);
+    border-width: 2px;
+}
+
+.fa-power-off {
+    color: firebrick;
+}

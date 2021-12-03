@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>ID</th>
+            <th>E-mail</th>
+            <th>Perfil</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarios; index as i ">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ usuario.usuario }}</td>
+            <td>{{ usuario.id_usuario }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.id_perfil }}</td>
+            <td> <button type="button" class="btn btn-warning" (click)="actualizarUsuario(usuario.id_usuario)">Actualizar</button> </td>
+            <td> <button type="button" class="btn btn-danger" (click)="borrar(usuario.id_usuario)">Borrar</button> </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <td class="col-1">ID Pedido</td>
+            <td>Usuario</td>
+            <td>Estado pedido</td>
+            <td class="col-2">Fecha creación</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+
+    <tbody *ngFor="let pedido of pedidos">
+
+        <tr>
+            <td class="col-1">{{ pedido.iD_PEDIDO }}</td>
+            <td><pre>{{ pedido.iD_USUARIO | usuario | async}}</pre></td>
+            <td>{{ estadoPedido[pedido.iD_PEDIDO] | estado }}</td>
+            <td>{{ pedido.fecha }}</td>
+            <td></td>
+            <td *ngIf="!mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-secondary" (click)="mostrarDetalle(pedido.iD_PEDIDO)">Mostrar detalle</button></td>
+            <td *ngIf="mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(pedido.iD_PEDIDO)">Ocultar Detalle</button></td>
+        </tr>
+
+        <tr [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="text-start fixedsize">
+
+            <td>ID Artículo</td>
+            <td>Artículo</td>
+            <td>Cantidad</td>
+            <td>Estado</td>
+            <td>Almacén</td>
+            <td></td>
+        </tr>
+
+        <tr *ngFor="let seccion of seccionesPedido[pedido.iD_PEDIDO]" [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="text-start fixedsize">
+
+            <td>{{ seccion.iD_ARTICULO }}</td>
+            <td>{{ seccion.iD_ARTICULO | articulo | async}}</td>
+            <td>{{ seccion.cantidad }}</td>
+            <td>{{ seccion.iD_ESTADO_PEDIDO }}</td>
+            <td>{{ seccion.iD_STOCK | almacen | async }}</td>
+            <td></td>
+
+        </tr>
+
+
+
+    </tbody>
+
+</table>

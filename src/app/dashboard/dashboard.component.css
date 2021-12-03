@@ -1,0 +1,14 @@
+.headfoot {
+    background-color: rgb(133, 156, 184);
+}
+
+.sidebar {
+    background-color: rgb(168, 197, 221);
+    height: 100%;
+    width: 350px;
+    z-index: 5;
+}
+
+.invisible {
+    display: none;
+}

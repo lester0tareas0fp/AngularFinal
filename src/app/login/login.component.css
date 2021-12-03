@@ -1,0 +1,26 @@
+:host {
+    background: linear-gradient(to bottom, #fcf8f8 0%, rgb(7, 7, 7) 100%);
+    size: 200px 200px;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.card-header {
+    background: black;
+    color: white;
+    border-color: #050e11;
+}
+
+.card {
+    border-color: #050e11;
+    border-style: ridge;
+}
+
+.btn {
+    background-color: black;
+}
+
+.aviso {
+    font-size: 0.7em;
+}

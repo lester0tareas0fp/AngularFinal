@@ -1,0 +1,65 @@
+<div class="d-flex justify-content-center align-items-center " style="height: 100% !important;">
+    <div class="card" style="width: 25rem;">
+
+        <h5 class="card-header">Login</h5>
+        <div class="card-body">
+
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+                <!-- Nombre -->
+                <div class="row mb-3">
+
+                    <label class="col-sm-5 col-form-label fw-bold">Nombre:</label>
+                    <div class="col-sm-12">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i>&nbsp;</span>
+                            </div>
+                            <input (keyup)="valido('nombre')" type="text" class="form-control" placeholder="Nombre del usuario" formControlName="nombre">
+                        </div>
+                        <div class="aviso text-danger fw-bold" [ngClass]="!nombre ? 'visible' : 'collapse' "><small>*Usuario inválido debe tener al menos 2 caracteres</small></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="row mb-3">
+
+                    <label class="col-sm-5 col-form-label fw-bold">Contraseña:</label>
+                    <div class="col-sm-12">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i>&nbsp;</span>
+                            </div>
+                            <input (keyup)="valido('pass')" type="password" class="form-control" placeholder="Contraseña del usuario" formControlName="pass">
+                        </div>
+                        <div class="aviso text-danger fw-bold" [ngClass]="!pass ? 'visible' : 'collapse' "><small>*Contraseña inválida</small></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Botones -->
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary float-end" type="submit" [disabled]="!loginForm.valid" *ngIf="!cargando">
+                                    Ingresar
+                        </button>
+                        <button class="btn btn-primary float-end" type="submit" [disabled]="true" *ngIf="cargando">
+                            <i class="fa fa-spin fa-sync"></i> Verificando
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-danger" *ngIf="error==400"><small>*No existe el usuario o la contraseña es incorrecta</small></div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

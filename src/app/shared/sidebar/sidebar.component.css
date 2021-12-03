@@ -1,0 +1,47 @@
+.menu:hover,
+.subMenu:hover {
+    background-color: rgb(133, 156, 184);
+    color: white;
+    cursor: pointer;
+}
+
+.menu {
+    color: rgb(79, 95, 114);
+    padding-left: 2rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.5rem;
+}
+
+.sidem {
+    font-size: 1.2em;
+}
+
+img {
+    margin-top: 8%;
+    border-radius: 50%;
+}
+
+.usuario {
+    font-size: 1.5rem;
+    font-family: 'Segoe UI';
+    color: rgb(14, 8, 41);
+}
+
+.usuario:hover {
+    cursor: pointer;
+}
+
+.imgperfil:hover {
+    cursor: pointer;
+}
+
+.subMenu {
+    padding-left: 5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: rgb(14, 8, 41);
+}
+
+ul {
+    margin: 0%;
+}

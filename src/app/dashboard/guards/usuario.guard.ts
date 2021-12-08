@@ -33,7 +33,6 @@ export class UsuariosGuard implements CanActivate {
 
   canActivate(): boolean{
 
-    console.log("UsuariosGuard", this.can)
     return this.can;
   }
 

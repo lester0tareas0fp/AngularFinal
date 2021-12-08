@@ -1,15 +1,37 @@
-.continuar {
-    color: rgb(55, 146, 55);
-    border-color: rgb(55, 146, 55);
-    border-width: 2px;
+.fa-shopping-basket:hover {
+    color: rgb(94, 224, 94);
 }
 
-.crear {
-    color: rgb(93, 163, 228);
-    border-color: rgb(93, 163, 228);
-    border-width: 2px;
-}
-
-.fa-power-off {
+.fa-power-off:hover {
     color: firebrick;
+}
+
+.fa-glasses:hover{
+    color: rgb(8, 133, 236);
+}
+
+.header{
+    background-color: black;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.alargador{
+    width:inherit;
+}
+
+.icono:hover{
+
+    color: white;
+}
+
+.fas{
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.icono:hover{
+    color:rgb(132, 133, 131);
 }

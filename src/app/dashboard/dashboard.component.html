@@ -1,28 +1,12 @@
 <div>
+        
+    <app-header></app-header>
+   
+    <app-sidebar [ngClass]="activeMenu ? ' ':'invisible'" class="sidebarv z-index-1 position-absolute"></app-sidebar>
 
-    <div class=" headfoot d-lg-block" style="width:100%;height: 10vh">
-        <div class="row">
-
-            <div class="col-12">
-                <app-header></app-header>
-            </div>
-
-        </div>
+    <div [ngClass]="activeMenu ? ' ':'invisible'" class="sidebari z-index-1 position-absolute" (click)="hide()">
     </div>
 
-    <div style="height: 89vh;">
-        <div class="row" style="height: 100%">
-
-            <div [ngClass]="activeMenu ? ' ':'invisible'" class="row sidebar z-index-1 position-absolute">
-                <app-sidebar></app-sidebar>
-            </div>
-
-            <div class="row">
-                <router-outlet></router-outlet>
-            </div>
-
-        </div>
-
-    </div>
+    <router-outlet></router-outlet>       
 
 </div>

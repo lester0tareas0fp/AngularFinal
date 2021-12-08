@@ -1,12 +1,23 @@
 .headfoot {
-    background-color: rgb(133, 156, 184);
+    background-color: rgb(7, 7, 7);
 }
 
-.sidebar {
-    background-color: rgb(168, 197, 221);
+.sidebarv {
+    background-color: rgb(3, 3, 3);
     height: 100%;
     width: 350px;
     z-index: 5;
+    border-top-color: rgb(244, 246, 248);
+    border-top-style: solid;
+    border-width: 0.03rem;
+}
+
+.sidebari {
+    background-color: rgb(10, 10, 10);
+    height: 100%;
+    width: 100%;
+    opacity: 0.4;
+    z-index: 4;
 }
 
 .invisible {

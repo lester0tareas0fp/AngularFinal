@@ -1,14 +1,23 @@
-.menu:hover,
-.subMenu:hover {
-    background-color: rgb(133, 156, 184);
-    color: white;
+.menu:hover
+{
+    background-color: rgb(8, 133, 236);
     cursor: pointer;
 }
 
+.subMenu:hover {
+    background-color: rgb(8, 133, 236);
+    color: black;
+    cursor: pointer;
+}
+
+.menu:hover .fa-plus{
+    color: rgb(7, 7, 7);
+}
+
 .menu {
-    color: rgb(79, 95, 114);
+    color: rgb(242, 245, 248);
     padding-left: 2rem;
-    padding-top: 0.3rem;
+    padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
 
@@ -16,18 +25,16 @@
     font-size: 1.2em;
 }
 
-img {
-    margin-top: 8%;
-    border-radius: 50%;
-}
-
 .usuario {
     font-size: 1.5rem;
     font-family: 'Segoe UI';
-    color: rgb(14, 8, 41);
+    color: white;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
 }
 
 .usuario:hover {
+   
     cursor: pointer;
 }
 
@@ -36,12 +43,18 @@ img {
 }
 
 .subMenu {
-    padding-left: 5rem;
+
+    list-style: none;
+    padding-left: 3rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    color: rgb(14, 8, 41);
+    color: rgb(132, 133, 131);
 }
 
-ul {
-    margin: 0%;
+.bar{
+    width: 350px;
+}
+
+.fa-plus{
+    color: rgb(132, 133, 131);
 }

@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
+import { hideMenu } from './store/state-menu.action';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,6 +32,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
 
     this.smSubcription.unsubscribe;
+  }
+
+  hide()
+  {
+    this.store.dispatch( hideMenu() );
   }
 
 }

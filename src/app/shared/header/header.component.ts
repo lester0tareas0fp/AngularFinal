@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
 
 export class HeaderComponent implements OnInit {
 
-  activeMenu: boolean = true;
+  activeMenu!: boolean;
 
   setCarrito!: boolean;
 
@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit {
   logout()
   {
     this.store.dispatch( unsetUser() );
-    this.store.dispatch( activateMenu() );
+    this.store.dispatch( hideMenu() );
     this.store.dispatch( emptyCarrito() );
     this.store.dispatch( unsetCarrito() );
     this.route.navigate(['/login']);
@@ -61,6 +61,13 @@ export class HeaderComponent implements OnInit {
 
   stateMenu()
   {
+    this.subscription = this.store.select('sm').subscribe( sm =>
+      {
+        this.activeMenu = sm.activeMenu;
+      })
+
+      this.subscription.unsubscribe();
+
     if ( this.activeMenu == true )
     {
 

@@ -4,5 +4,5 @@ export interface StateMenu {
 }
 
 export const MenuInitialState: StateMenu = {
-        activeMenu: true
+        activeMenu: false
 }

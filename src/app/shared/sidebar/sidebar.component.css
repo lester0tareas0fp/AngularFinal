@@ -1,17 +1,16 @@
-.menu:hover
-{
-    background-color: rgb(8, 133, 236);
+.menu:hover {
+    background-color: rgb(17, 80, 131);
     cursor: pointer;
 }
 
 .subMenu:hover {
-    background-color: rgb(8, 133, 236);
-    color: black;
+    background-color: rgb(39, 89, 131);
+    color: white;
     cursor: pointer;
 }
 
-.menu:hover .fa-plus{
-    color: rgb(7, 7, 7);
+.menu:hover .fa-plus {
+    color: rgb(120, 190, 247);
 }
 
 .menu {
@@ -34,7 +33,6 @@
 }
 
 .usuario:hover {
-   
     cursor: pointer;
 }
 
@@ -43,7 +41,6 @@
 }
 
 .subMenu {
-
     list-style: none;
     padding-left: 3rem;
     padding-top: 0.5rem;
@@ -51,10 +48,18 @@
     color: rgb(132, 133, 131);
 }
 
-.bar{
+.bar {
     width: 350px;
 }
 
-.fa-plus{
+.fa-plus {
     color: rgb(132, 133, 131);
+}
+
+.fa-ghost:hover {
+    color: rgb(245, 121, 183);
+}
+
+.nombre:hover {
+    color: rgb(255, 230, 0);
 }

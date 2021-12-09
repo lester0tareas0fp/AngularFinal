@@ -7,3 +7,49 @@ img {
 input {
     text-align: right;
 }
+
+label {
+    font-weight: bold;
+}
+
+.inputs {
+    margin: 5px;
+}
+
+.card {
+    margin: 10px;
+    border-color: rgb(19, 157, 192);
+    background: rgb(245, 247, 248);
+    color: rgb(19, 157, 192);
+    box-shadow: 0px 10px 10px rgb(128, 128, 128);
+}
+
+.card-header {
+    border: none;
+    background: white;
+}
+
+.enviar:hover {
+    background-color: rgb(19, 157, 192);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.enviar {
+    background-color: white;
+    border: none;
+    color: rgb(19, 157, 192);
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}

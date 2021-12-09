@@ -1,19 +1,29 @@
-<div class="row">
+<div class="row superior">
 
-    <div class="col-xl-3 col-md-4 col-sm-6" *ngFor="let articulo of articulos; index as i ">
+    <div class="col d-flex justify-content-center" *ngFor="let articulo of articulos; index as i ">
 
-        <div class="articulos card" style="width: 15rem; height:10rem" [routerLink]="['/articulos/actualizar']" [queryParams]="{id_articulo: articulo.iD_ARTICULO}" routerLinkActive="true">
+        <div class="card" style="width: 18rem; height:24rem" [routerLink]="['/articulos/actualizar']" [queryParams]="{id_articulo: articulo.iD_ARTICULO}" routerLinkActive="true">
 
             <div class="card-header">
-                {{articulo.articulo}}
+                <b>{{articulo.articulo}}</b>
             </div>
 
             <div class="card-body">
 
                 <div class="row">
-                    <div class="col">
-                        <img [src]="img[articulo.iD_ARTICULO]" width="50" height="50">
+                    <div class="col d-flex justify-content-center">
+                        <img [src]="img[articulo.iD_ARTICULO]" width="125px" height="150px">
                     </div>
+                </div>
+
+                <div class="row desc">
+
+                    <div class="col orden">
+                        <p><b>Fabricante:</b> {{ articulo.fabricante | titlecase }}</p>
+
+                        <p class="col desc"><b>Descripción:</b> {{ articulo.descripcion | lowercase }}</p>
+                    </div>
+
                 </div>
 
             </div>

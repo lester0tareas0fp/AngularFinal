@@ -1,12 +1,16 @@
 <div>
-        
-    <app-header></app-header>
-   
-    <app-sidebar [ngClass]="activeMenu ? ' ':'invisible'" class="sidebarv z-index-1 position-absolute"></app-sidebar>
 
-    <div [ngClass]="activeMenu ? ' ':'invisible'" class="sidebari z-index-1 position-absolute" (click)="hide()">
+    <app-header></app-header>
+
+    <app-sidebar [ngClass]="activeMenu ? ' ':'invisible'" class="sidebarv z-index-3 position-absolute"></app-sidebar>
+
+    <div [ngClass]="activeMenu ? ' ':'invisible'" class="sidebari z-index-3 position-absolute" (click)="hide()">
     </div>
 
-    <router-outlet></router-outlet>       
+    <div class="contenido position-absolute">
+
+        <router-outlet></router-outlet>
+
+    </div>
 
 </div>

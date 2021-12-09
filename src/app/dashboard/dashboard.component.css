@@ -20,6 +20,13 @@
     z-index: 4;
 }
 
+.contenido {
+    height: 100%;
+    width: 100%;
+    background: rgb(240, 243, 245);
+    overflow: auto;
+}
+
 .invisible {
     display: none;
 }

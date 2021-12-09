@@ -83,15 +83,19 @@ export class ActualizarArticulosComponent implements OnInit {
         maxStock += cantidad.cantidad;
       });
 
+      this.max = maxStock;
+
       maxStock -= this.cantidadArticuloCarrito;
 
       
     }else{
 
       maxStock = 1000;
+
+      this.max = maxStock;
     }
 
-    this.max = maxStock;
+    
 
     const { articulo, descripcion, fabricante, peso, largo, ancho, alto, precio} = this.articulo;
 

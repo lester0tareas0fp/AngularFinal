@@ -1,19 +1,22 @@
+<div class="usuario text-center">
+    <p (click)='navegar()'><span class="nombre">{{ usuario?.usuario | titlecase }}</span>
+        <br>
+        <i class="fas fa-ghost"></i>
+    </p>
+</div>
 
-    <div class="usuario text-center"><p class="usuario" (click)='navegar()'>{{ usuario?.usuario | titlecase }}</p></div>
 
 
-        
-        <div  *ngFor="let item of getMenu(); index as i">
-        
-            <div class="menu sidem text-right" (click)="item.menuActivo = !item.menuActivo">
-                <i class="fas fa-plus fa-xs"></i> {{ item.nombre }}
-            </div>
-        
-            <div *ngIf="item.menuActivo">
-                <div class="subMenu" *ngFor="let subMenuItem of getSubMenu(i)" [routerLink]="[subMenuItem.url]" routerLinkActive="true">
-                    {{subMenuItem.nombre}}
-                </div>
-            </div>
+<div *ngFor="let item of getMenu(); index as i">
 
+    <div class="menu sidem text-right" (click)="item.menuActivo = !item.menuActivo">
+        <i class="fas fa-plus fa-xs"></i> {{ item.nombre }}
+    </div>
+
+    <div *ngIf="item.menuActivo">
+        <div class="subMenu" *ngFor="let subMenuItem of getSubMenu(i)" [routerLink]="[subMenuItem.url]" routerLinkActive="true">
+            {{subMenuItem.nombre}}
         </div>
+    </div>
 
+</div>

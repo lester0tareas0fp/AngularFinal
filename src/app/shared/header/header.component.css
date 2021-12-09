@@ -6,32 +6,43 @@
     color: firebrick;
 }
 
-.fa-glasses:hover{
+.fa-glasses:hover {
     color: rgb(8, 133, 236);
 }
 
-.header{
+.header {
     background-color: black;
     width: 100%;
     padding-left: 40px;
     padding-right: 40px;
 }
 
-.alargador{
-    width:inherit;
+.alargador {
+    width: inherit;
 }
 
-.icono:hover{
-
+.icono:hover {
     color: white;
 }
 
-.fas{
+.fas {
     cursor: pointer;
     margin-left: 10px;
     margin-right: 10px
 }
 
-.icono:hover{
-    color:rgb(132, 133, 131);
+.icono {
+    color: rgb(132, 133, 131);
+}
+
+.fa-power-off {
+    color: rgb(132, 133, 131);
+}
+
+.fa-glasses {
+    color: rgb(132, 133, 131);
+}
+
+.fa-shopping-basket {
+    color: rgb(132, 133, 131);
 }

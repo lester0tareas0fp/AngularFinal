@@ -14,7 +14,7 @@
     </div>
 
     <div *ngIf="item.menuActivo">
-        <div class="subMenu" *ngFor="let subMenuItem of getSubMenu(i)" [routerLink]="[subMenuItem.url]" routerLinkActive="true">
+        <div class="subMenu" *ngFor="let subMenuItem of getSubMenu(i)" (click)="hideMenu()" [routerLink]="[subMenuItem.url]" routerLinkActive="true">
             {{subMenuItem.nombre}}
         </div>
     </div>

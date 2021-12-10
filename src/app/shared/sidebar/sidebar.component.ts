@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
 import { setUser } from 'src/app/core/store/usuario.actions';
+import { hideMenu } from 'src/app/dashboard/store/state-menu.action';
 import { userInitialState, UsuarioAuth } from '../../core/interfaces/auth.interface';
 
 interface MenuItem {
@@ -165,6 +166,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
     user.id_usuario_edicion = this.usuario.id_usuario
     this.store.dispatch( setUser( { user: user } )  ); 
     this.router.navigate([`${this.url}`])
+  }
+
+  hideMenu(){
+    this.store.dispatch( hideMenu() );
   }
 
 }

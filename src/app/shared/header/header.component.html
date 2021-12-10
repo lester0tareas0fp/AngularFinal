@@ -1,21 +1,21 @@
-<div class="header py-4 d-flex">
+<div class="header py-4 d-flex" (click)="hide.next(true)">
 
 
-    <i class="icono  fas fa-bars fa-lg" (click)="stateMenu()"></i>
-    
-    <div class="alargador d-flex justify-content-end" >
+    <i class="icono  fas fa-bars fa-lg" (click)="stateMenu($event)"></i>
+
+    <div class="alargador d-flex justify-content-end">
 
         <div [ngClass]="setCarrito? '':'d-none' " class="continuar" [routerLink]="['/carrito']" routerLinkActive="true">
             <i class="continuar fas fa-shopping-basket fa-lg "></i>
         </div>
-        
-        
+
+
         <div class="crear" [routerLink]="['/articulos/ver']" routerLinkActive="true">
             <i class="crear fas fa-glasses fa-lg "></i>
         </div>
-    
-    
-        <div (click)="logout()" class="out "> 
+
+
+        <div (click)="logout()" class="out ">
             <i class="out fas fa-power-off fa-lg"></i>
         </div>
     </div>

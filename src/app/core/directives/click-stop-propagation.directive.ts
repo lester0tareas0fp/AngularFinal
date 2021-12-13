@@ -8,7 +8,6 @@ export class ClickStopPropagation
     @HostListener("click", ["$event"])
     public onClick(event: any): void
     {
-        debugger
         event.stopPropagation();
     }
 }

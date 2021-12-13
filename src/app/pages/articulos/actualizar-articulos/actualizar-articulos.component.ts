@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 import { Articulo } from '../interfaces/articulo.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Stock } from '../interfaces/stock.interface';
 import { Imagen } from '../interfaces/imagen.interface';
 import { InsertarArticulo } from '../interfaces/insertar-articulo.interface';
@@ -19,6 +19,7 @@ import { Carrito } from '../../carrito/interfaces/carrito.interface';
 import * as ca from '../../carrito/store/carrito.actions';
 import { Subscription } from 'rxjs';
 import { setCarrito } from '../../carrito/store/estado-carrito.action';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-actualizar-articulos',
@@ -47,9 +48,11 @@ export class ActualizarArticulosComponent implements OnInit {
 
   perfil: number | null = 3;
 
-  constructor(private fb: FormBuilder, private service: ArticulosService, private route: ActivatedRoute, private store: Store<AppState>) 
-  { 
+  paramUrl: number = 0;
 
+  constructor(private fb: FormBuilder, private service: ArticulosService, private route: ActivatedRoute, private store: Store<AppState>, private router:Router) 
+  { 
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
@@ -57,6 +60,20 @@ export class ActualizarArticulosComponent implements OnInit {
     this.articulo = this.route.snapshot.data['articulo'];
     this.stock = this.route.snapshot.data['stock'];
     this.imagen = this.route.snapshot.data['imagen'];
+
+    this.route.params.pipe(
+      map( () =>
+        {
+          this.route.queryParams.subscribe(param => 
+            {
+              if(this.articulo.iD_ARTICULO != param.id_articulo)
+              {
+                window.location.reload();
+              }
+            });
+        })
+      
+    ).subscribe()
 
     this.suscripcion = this.store.select('ca').subscribe(carrito =>
       {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
@@ -9,6 +9,8 @@ import { emptyCarrito } from 'src/app/pages/carrito/store/carrito.actions';
 import { setCarrito } from 'src/app/pages/carrito/store/estado-carrito.action';
 import { unsetCarrito } from '../../pages/carrito/store/estado-carrito.action';
 import { Router } from '@angular/router';
+import { ArticulosService } from '../../pages/articulos/services/articulos.service';
+import { ArticuloBusqueda } from '../../pages/articulos/interfaces/articulo-busqueda.interface';
 
 
 @Component({
@@ -25,17 +27,20 @@ export class HeaderComponent implements OnInit {
 
   subscription!: Subscription;
 
+  listadoBusqueda: ArticuloBusqueda[] = [];
+
+  busquedaArt!: string;
+
+  mostrar: boolean = false;
+
   @Output()
   public  hide = new EventEmitter<boolean>()
 
-  constructor(private store: Store<AppState>, private route: Router) 
+  @ViewChild('buscador') buscador!: ElementRef;
+
+  constructor(private store: Store<AppState>, private route: Router, private servicio: ArticulosService) 
   { 
-
-  }
-
-  ngOnInit(): void {
-
-    this.subscription = this.store.select('ca').subscribe( ca =>
+    this.store.select('ca').subscribe( ca =>
       {
         if (ca.length > 0)
         {
@@ -43,7 +48,7 @@ export class HeaderComponent implements OnInit {
         }
       })
 
-      this.subscription = this.store.select('sm').subscribe( sm =>
+      this.store.select('sm').subscribe( sm =>
         {
           this.activeMenu = sm.activeMenu;
         })
@@ -54,6 +59,10 @@ export class HeaderComponent implements OnInit {
         {
           this.setCarrito = sc.estado;
         })
+
+  }
+
+  ngOnInit(): void {
 
   }
 
@@ -83,6 +92,44 @@ export class HeaderComponent implements OnInit {
       this.store.dispatch( activateMenu() );
       this.activeMenu = true
     }
+  }
+
+  busqueda()
+  {
+
+    this.subscription = this.servicio.getArticulosBusqueda(this.buscador.nativeElement.value).subscribe(articulos => 
+      {
+        this.listadoBusqueda = articulos;
+      })
+
+      this.mostrar = true;
+
+  }
+
+  mostrarBusqueda(mostrar: boolean)
+  {
+    this.mostrar = mostrar;
+  }
+
+  irArticulosBusqueda( evento: any){
+
+    console.log(evento)
+
+    if( this.buscador.nativeElement.value != "" && (evento.key == "Enter" || evento.pointerId == 1 ) )
+    {
+      this.route.navigate(['/articulos/busqueda'], { queryParams: { busqueda: this.buscador.nativeElement.value } })
+    }else{
+
+      return
+    }
+
+    this.limpiarBuscador();
+  }
+
+  limpiarBuscador()
+  {
+    this.buscador.nativeElement.value = "";
+    this.listadoBusqueda = [];
   }
 
 }

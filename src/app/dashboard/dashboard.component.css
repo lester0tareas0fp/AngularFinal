@@ -1,9 +1,9 @@
 .headfoot {
-    background-color: rgb(7, 7, 7);
+    background-color: rgb(39, 89, 131);
 }
 
 .sidebarv {
-    background-color: rgb(3, 3, 3);
+    background-color: rgb(39, 89, 131);
     height: 100%;
     width: 350px;
     z-index: 5;

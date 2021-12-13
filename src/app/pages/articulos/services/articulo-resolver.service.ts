@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Articulo } from '../interfaces/articulo.interface';
 import { Observable } from 'rxjs';
@@ -13,7 +13,6 @@ export class ArticuloResolverService implements Resolve<any> {
 
   constructor(private httpClient: HttpClient) 
   { 
-
   }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Articulo> {

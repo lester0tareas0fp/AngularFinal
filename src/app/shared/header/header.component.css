@@ -1,5 +1,5 @@
 .fa-shopping-basket:hover {
-    color: rgb(94, 224, 94);
+    color: rgb(228, 227, 220);
 }
 
 .fa-power-off:hover {
@@ -7,22 +7,36 @@
 }
 
 .fa-glasses:hover {
-    color: rgb(8, 133, 236);
+    color: rgb(228, 227, 220);
 }
 
 .header {
-    background-color: black;
+    background-color: rgb(39, 89, 131);
     width: 100%;
     padding-left: 40px;
     padding-right: 40px;
 }
 
 .alargador {
-    width: inherit;
+    width: 33%;
+}
+
+.c-buscador {
+    width: 34%;
+}
+
+.listado {
+    width: 34%;
+    z-index: 8;
+    position: absolute;
+}
+
+.menu {
+    width: 33%;
 }
 
 .icono:hover {
-    color: white;
+    color: rgb(228, 227, 220);
 }
 
 .fas {
@@ -46,3 +60,58 @@
 .fa-shopping-basket {
     color: rgb(132, 133, 131);
 }
+
+.fa-search {
+    color: rgb(132, 133, 131);
+}
+
+.input-group {
+    background-color: white;
+    border-color: white;
+    border-radius: 5%;
+}
+
+.input-group-prepend:hover .fa-search {
+    color: rgb(120, 190, 247);
+    cursor: pointer;
+}
+
+.input-group-text {
+    background-color: white;
+    border-color: white;
+}
+
+input {
+    border-color: white;
+}
+
+.listado {
+    z-index: 8;
+}
+
+.listado li {
+    list-style: none;
+    background-color: white;
+    width: 90%;
+}
+
+br {
+    display: block;
+    line-height: 150%;
+}
+
+.articulo {
+    background-color: white;
+    opacity: 0.6;
+}
+
+.articulo:hover {
+    background-color: rgb(230, 234, 236);
+    cursor: pointer;
+}
+
+
+/* .busqueda {
+    border-bottom: black;
+    border-bottom-style: ridge;
+} */

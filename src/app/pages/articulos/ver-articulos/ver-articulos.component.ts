@@ -14,16 +14,15 @@ export class VerArticulosComponent implements OnInit {
 
   constructor(private service: ArticulosService) 
   { 
-  }
-
-  ngOnInit(): void {
-
     this.service.getArticulos().subscribe( resp =>
       {
         this.articulos = resp;
         this.total_articulos = this.articulos.length;
         this.inicializar();
       })
+  }
+
+  ngOnInit(): void {
 
   }
 

@@ -1,0 +1,29 @@
+.card {
+    cursor: pointer;
+    margin: 10px;
+    border-color: rgb(19, 157, 192);
+    background: rgb(245, 247, 248);
+    color: rgb(19, 157, 192);
+    box-shadow: 0px 10px 10px rgb(128, 128, 128);
+}
+
+.card-header {
+    border: none;
+    background: white;
+}
+
+.superior {
+    width: 100%
+}
+
+.orden {
+    line-height: 50%;
+}
+
+.desc {
+    line-height: 150%;
+}
+
+.row .desc {
+    margin-top: 15px;
+}

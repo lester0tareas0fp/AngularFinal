@@ -10,6 +10,7 @@ import { InsertarStock } from '../interfaces/insertar-stock.interface';
 import { CrearArticulo } from '../interfaces/crearArticulo.interface';
 import { Imagen } from '../interfaces/imagen.interface';
 import { Stock } from '../interfaces/stock.interface';
+import { ArticuloBusqueda } from '../interfaces/articulo-busqueda.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,18 @@ export class ArticulosService {
   {
     const url = `${this.url}/Articulos/borrarArticulo`;
     return this.httpClient.post<any>(url, id_articulo);
+  }
+
+  getArticulosBusqueda(busqueda: string)
+  {
+    const url = `${this.url}/Articulos/busquedaMax?busqueda=${busqueda}`;
+    return this.httpClient.get<ArticuloBusqueda[]>(url);
+  }
+
+  getArticulosBusquedaVista(busqueda: string)
+  {
+    const url = `${this.url}/Articulos/busqueda?busqueda=${busqueda}`;
+    return this.httpClient.get<ArticuloBusqueda[]>(url);
   }
 
 }

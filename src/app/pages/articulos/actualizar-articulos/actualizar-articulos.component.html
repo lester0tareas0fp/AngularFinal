@@ -154,11 +154,11 @@
 
                         <div class="row d-flex justify-content-end">
 
-                            <div class="col-2">
+                            <div class="col-2" [ngClass]="perfil!<=2? 'visible': 'invisible'">
                                 <button type="submit" class="btn update" [disabled]="actualizarArticuloForm.invalid || articulo.iD_ESTADO_ARTICULO == 2">Actualizar</button>
                             </div>
 
-                            <div class="col-2">
+                            <div class="col-2" [ngClass]="perfil==1? 'visible': 'invisible'">
                                 <button type="button" class="btn danger" [disabled]="articulo.iD_ESTADO_ARTICULO == 2" (click)="borrarArticulo()">Borrar</button>
                             </div>
 

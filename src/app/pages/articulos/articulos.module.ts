@@ -9,6 +9,7 @@ import { ActualizarArticulosComponent } from './actualizar-articulos/actualizar-
 import { RouterModule } from '@angular/router';
 import { CarritoComponent } from '../carrito/carrito.component';
 import { CrearPedidoComponent } from '../crear-pedido/crear-pedido.component';
+import { BusquedaArticulosComponent } from './busqueda-articulos/busqueda-articulos.component';
 
 
 
@@ -18,7 +19,8 @@ import { CrearPedidoComponent } from '../crear-pedido/crear-pedido.component';
     CrearArticulosComponent,
     ActualizarArticulosComponent,
     CarritoComponent,
-    CrearPedidoComponent
+    CrearPedidoComponent,
+    BusquedaArticulosComponent
   ],
   imports: [
     CommonModule,

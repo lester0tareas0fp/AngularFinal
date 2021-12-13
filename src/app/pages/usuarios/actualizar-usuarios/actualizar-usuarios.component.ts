@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Usuario, UpdateUsuario } from '../interfaces/usuario.interface';
 import { UsuariosService } from '../services/usuarios.service';
@@ -27,7 +27,6 @@ export class ActualizarUsuariosComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private service: UsuariosService, private store: Store<AppState>) 
   { 
-
   }
 
   ngOnInit(): void {

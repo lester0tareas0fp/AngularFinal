@@ -1,7 +1,46 @@
 <div class="header py-4 d-flex" (click)="hide.next(true)">
 
+    <div class="menu">
+        <i class="icono fas fa-bars fa-lg" (click)="stateMenu($event)"></i>
 
-    <i class="icono  fas fa-bars fa-lg" (click)="stateMenu($event)"></i>
+    </div>
+
+    <div class="c-buscador d-flex justify-content-center" (mouseleave)="mostrarBusqueda(false)">
+
+        <div class="listado">
+
+            <ul>
+
+                <li>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-search" (click)="irArticulosBusqueda( $event )"></i>&nbsp;</span>
+                        </div>
+                        <input type="text" class="form-control busqueda" placeholder="Buscar artículo" (input)="busqueda()" (keyup)="irArticulosBusqueda( $event )" #buscador>
+
+                    </div>
+                </li>
+
+                <div class="encontrado" *ngFor="let articulo of listadoBusqueda" [ngClass]="mostrar? 'visible' : 'invisible'">
+                    <li [routerLink]="['/articulos/actualizar']" [queryParams]="{id_articulo: articulo.id_articulo}" routerLinkActive="true" (click)="limpiarBuscador()">
+
+                        <input type="text" class="form-control articulo" [placeholder]="articulo.articulo" disabled>
+
+                    </li>
+                </div>
+
+
+            </ul>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
 
     <div class="alargador d-flex justify-content-end">
 
@@ -15,7 +54,7 @@
         </div>
 
 
-        <div (click)="logout()" class="out ">
+        <div (click)="logout()" class="out">
             <i class="out fas fa-power-off fa-lg"></i>
         </div>
     </div>

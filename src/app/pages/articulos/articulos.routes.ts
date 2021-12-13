@@ -8,6 +8,7 @@ import { ArticuloResolverService } from "./services/articulo-resolver.service";
 import { StockResolverService } from './services/stock-resolver.service';
 import { ImagenResolverService } from './services/imagen-resolver.service';
 import { ArticulosGuard } from "./actualizar-articulos/guards/articulos.guard";
+import { BusquedaArticulosComponent } from './busqueda-articulos/busqueda-articulos.component';
 
 
 export const articulosRoutes: Routes = [
@@ -36,6 +37,11 @@ export const articulosRoutes: Routes = [
                     imagen: ImagenResolverService
                 }
             },
+            {
+                path: 'busqueda', 
+                component: BusquedaArticulosComponent
+            },
+
             {
                 path:'**', redirectTo: 'articulos/ver'
             }

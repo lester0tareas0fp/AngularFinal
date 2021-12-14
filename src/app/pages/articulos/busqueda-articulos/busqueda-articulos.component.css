@@ -1,10 +1,14 @@
 .card {
     cursor: pointer;
     margin: 10px;
-    border-color: rgb(19, 157, 192);
+    border-color: rgb(39, 89, 131);
     background: rgb(245, 247, 248);
-    color: rgb(19, 157, 192);
+    color: rgb(39, 89, 131);
     box-shadow: 0px 10px 10px rgb(128, 128, 128);
+}
+
+.card:hover {
+    box-shadow: 0px 10px 10px rgb(90, 90, 90);
 }
 
 .card-header {
@@ -26,4 +30,8 @@
 
 .row .desc {
     margin-top: 15px;
+}
+
+hr {
+    border: 0.2px solid rgb(39, 89, 131);
 }

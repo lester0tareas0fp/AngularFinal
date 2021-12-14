@@ -1,14 +1,35 @@
-<form [formGroup]="actualizarUsuariosForm" (ngSubmit)="actualizarUsuario()">
+<div class="row mt-5 d-flex justify-content-center">
 
-    <app-formulario-component></app-formulario-component>
+    <div class="card">
 
-    <div class="row justify-content-center text-end">
+        <div class="card-header">
 
-        <div class="col-4">
-
-            <button type="submit" class="btn btn-primary" [disabled]="actualizarUsuariosForm.invalid">Actualizar Usuario</button>
+            <h2 class="text-center">
+                Actualizar Usuario
+            </h2>
 
         </div>
+        <div class="card-body">
+            <form [formGroup]="actualizarUsuariosForm" (ngSubmit)="actualizarUsuario()">
+
+                <app-formulario-component></app-formulario-component>
+
+                <br>
+
+                <div class="row justify-content-center text-end">
+
+                    <div class="col-10">
+
+                        <button type="submit" class="btn btn-primary" [disabled]="actualizarUsuariosForm.invalid">Actualizar Usuario</button>
+
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+
     </div>
 
-</form>
+</div>

@@ -19,17 +19,27 @@
     padding-left: 2rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.subMenu {
+    list-style: none;
+    padding-left: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: rgb(132, 133, 131);
+    font-size: 1.2rem;
 }
 
 .sidem {
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .usuario {
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-family: 'Segoe UI';
-    color: rgb(132, 133, 131);
-    padding-top: 2rem;
+    color: rgb(120, 190, 247);
+    padding-top: 3rem;
     padding-bottom: 1rem;
 }
 
@@ -39,14 +49,6 @@
 
 .imgperfil:hover {
     cursor: pointer;
-}
-
-.subMenu {
-    list-style: none;
-    padding-left: 3rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    color: rgb(132, 133, 131);
 }
 
 .bar {

@@ -1,0 +1,26 @@
+.card {
+    width: 30rem;
+    background-color: rgb(39, 89, 131);
+    border: none;
+    color: rgb(204, 204, 204);
+}
+
+.card-header {
+    border: none;
+    background: rgb(39, 89, 131);
+}
+
+.btn-primary {
+    background-color: rgb(0, 36, 66);
+    font-weight: bolder;
+    border-width: 3px;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: rgb(0, 36, 66);
+    font-weight: bolder;
+    border-style: ridge;
+    border-color: rgb(0, 36, 66);
+    border-width: 3px;
+}

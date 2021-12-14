@@ -1,0 +1,26 @@
+.row {
+    margin: unset;
+}
+
+.informe {
+    width: 50%;
+    margin: auto;
+    background-color: rgb(39, 89, 131);
+}
+
+.card {
+    width: 50rem;
+    padding: unset;
+    background-color: rgb(39, 89, 131);
+    border-color: white;
+}
+
+.table {
+    background-color: rgb(39, 89, 131);
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    color: rgb(236, 236, 236);
+}

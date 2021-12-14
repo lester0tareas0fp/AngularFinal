@@ -18,9 +18,9 @@ label {
 
 .card {
     margin: 10px;
-    border-color: rgb(19, 157, 192);
+    border-color: rgb(39, 89, 131);
     background: rgb(245, 247, 248);
-    color: rgb(19, 157, 192);
+    color: rgb(39, 89, 131);
     box-shadow: 0px 10px 10px rgb(128, 128, 128);
 }
 
@@ -30,7 +30,7 @@ label {
 }
 
 .enviar:hover {
-    background-color: rgb(19, 157, 192);
+    background-color: rgb(39, 89, 131);
     border: none;
     color: white;
     padding: 10px 15px;
@@ -44,7 +44,7 @@ label {
 .enviar {
     background-color: white;
     border: none;
-    color: rgb(19, 157, 192);
+    color: rgb(39, 89, 131);
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;

@@ -2,7 +2,7 @@
 
     <div class="col d-flex justify-content-center" *ngFor="let articulo of articulos; index as i ">
 
-        <div class="card" style="width: 18rem; height:24rem" [routerLink]="['/articulos/actualizar']" [queryParams]="{id_articulo: articulo.iD_ARTICULO}" routerLinkActive="true">
+        <div class="card" [routerLink]="['/articulos/actualizar']" [queryParams]="{id_articulo: articulo.iD_ARTICULO}" routerLinkActive="true">
 
             <div class="card-header">
                 <b>{{articulo.articulo}}</b>
@@ -16,6 +16,8 @@
                     </div>
                 </div>
 
+                <hr>
+
                 <div class="row desc">
 
                     <div class="col orden">
@@ -25,6 +27,8 @@
                     </div>
 
                 </div>
+
+                <hr>
 
             </div>
 

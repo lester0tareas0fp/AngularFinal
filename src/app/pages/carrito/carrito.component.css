@@ -1,0 +1,22 @@
+.pedido {
+    width: 100%;
+}
+
+.card {
+    width: 50rem;
+    padding: unset;
+}
+
+.hr {
+    border-top: rgb(39, 89, 131);
+    border-style: solid;
+    padding: unset;
+}
+
+.row {
+    margin: 0px;
+}
+
+img {
+    vertical-align: unset;
+}

@@ -1,50 +1,80 @@
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <td class="col-1">ID Pedido</td>
-            <td>Usuario</td>
-            <td>Estado pedido</td>
-            <td class="col-2">Fecha creación</td>
-            <td></td>
-            <td></td>
-        </tr>
-    </thead>
+<div class="row informe mt-5">
 
-    <tbody *ngFor="let pedido of pedidos">
+    <h2>
+        Informe de pedidos
+    </h2>
 
-        <tr>
-            <td class="col-1">{{ pedido.iD_PEDIDO }}</td>
-            <td><pre>{{ pedido.iD_USUARIO | usuario | async}}</pre></td>
-            <td>{{ estadoPedido[pedido.iD_PEDIDO] | estado }}</td>
-            <td>{{ pedido.fecha }}</td>
-            <td></td>
-            <td *ngIf="!mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-secondary" (click)="mostrarDetalle(pedido.iD_PEDIDO)">Mostrar detalle</button></td>
-            <td *ngIf="mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(pedido.iD_PEDIDO)">Ocultar Detalle</button></td>
-        </tr>
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="col-2">ID Pedido</td>
+                <td>Usuario</td>
+                <td>Estado pedido</td>
+                <td class="col-3">Fecha creación</td>
+                <td></td>
+                <td class="col-2"></td>
+            </tr>
+        </thead>
 
-        <tr [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="text-start fixedsize">
+        <tbody *ngFor="let pedido of pedidos">
 
-            <td>ID Artículo</td>
-            <td>Artículo</td>
-            <td>Cantidad</td>
-            <td>Estado</td>
-            <td>Almacén</td>
-            <td></td>
-        </tr>
-
-        <tr *ngFor="let seccion of seccionesPedido[pedido.iD_PEDIDO]" [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="text-start fixedsize">
-
-            <td>{{ seccion.iD_ARTICULO }}</td>
-            <td>{{ seccion.iD_ARTICULO | articulo | async}}</td>
-            <td>{{ seccion.cantidad }}</td>
-            <td>{{ seccion.iD_ESTADO_PEDIDO }}</td>
-            <td>{{ seccion.iD_STOCK | almacen | async }}</td>
-            <td></td>
-
-        </tr>
+            <tr>
+                <td class="col-1">{{ pedido.iD_PEDIDO }}</td>
+                <td><pre>{{ pedido.iD_USUARIO | usuario | async}}</pre></td>
+                <td>{{ estadoPedido[pedido.iD_PEDIDO] | estado }}</td>
+                <td>{{ pedido.fecha }}</td>
+                <td></td>
+                <td *ngIf="!mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-secondary " (click)="mostrarDetalle(pedido.iD_PEDIDO)">Mostrar detalle</button></td>
+                <td *ngIf="mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(pedido.iD_PEDIDO)">Ocultar Detalle</button></td>
+            </tr>
 
 
 
-    </tbody>
 
-</table>
+
+            <tr [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="detalle">
+                <td colspan="12" class="detalle">
+
+                    <div class="card float-end">
+
+                        <div class="card-header">
+
+                            <div [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="row text-end">
+
+                                <div class="col">ID Artículo</div>
+                                <div class="col">Artículo</div>
+                                <div class="col">Cantidad</div>
+                                <div class="col">Estado</div>
+                                <div class="col">Almacén</div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div *ngFor="let seccion of seccionesPedido[pedido.iD_PEDIDO]" [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="row text-end">
+
+                                <div class="col">{{ seccion.iD_ARTICULO }}</div>
+                                <div class="col">{{ seccion.iD_ARTICULO | articulo | async}}</div>
+                                <div class="col">{{ seccion.cantidad }}</div>
+                                <div class="col">{{ seccion.iD_ESTADO_PEDIDO }}</div>
+                                <div class="col">{{ seccion.iD_STOCK | almacen | async }}</div>
+
+                                <hr>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </td>
+            </tr>
+
+
+        </tbody>
+
+    </table>
+
+</div>

@@ -53,3 +53,7 @@ label {
     cursor: pointer;
     font-weight: bold;
 }
+
+.row {
+    width: 100%;
+}

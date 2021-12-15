@@ -28,3 +28,7 @@
 :host ::ng-deep .pass {
     display: none;
 }
+
+.row {
+    width: 100%;
+}

@@ -1,22 +1,31 @@
-<table class="table">
+<table class="table listado mt-5">
     <thead>
         <tr>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>ID</th>
-            <th>E-mail</th>
-            <th>Perfil</th>
+            <th colspan="8">
+                <h2>Listado de Usuarios</h2>
+            </th>
         </tr>
     </thead>
-    <tbody>
+    <tr>
+        <th></th>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>ID</th>
+        <th>E-mail</th>
+        <th>Perfil</th>
+    </tr>
+    <tbody class="card-body">
         <tr *ngFor="let usuario of usuarios; index as i ">
+            <td></td>
             <th scope="row">{{ i + 1 }}</th>
             <td>{{ usuario.usuario }}</td>
             <td>{{ usuario.id_usuario }}</td>
             <td>{{ usuario.email }}</td>
-            <td>{{ usuario.id_perfil }}</td>
-            <td> <button type="button" class="btn btn-warning" (click)="actualizarUsuario(usuario.id_usuario)">Actualizar</button> </td>
-            <td> <button type="button" class="btn btn-danger" (click)="borrar(usuario.id_usuario)">Borrar</button> </td>
+            <td>{{ usuario.id_perfil | perfil_usuario }}</td>
+            <td class="col-1"> <button type="button" class="btn btn-warning" (click)="actualizarUsuario(usuario.id_usuario)">Actualizar</button> </td>
+            <td [ngClass]="user.id_usuario == usuario.id_usuario? 'collapse':'visible' "> <button type="button" class="btn btn-danger" (click)="borrar(usuario.id_usuario)">Borrar</button> </td>
+            <td [ngClass]="user.id_usuario == usuario.id_usuario? 'visible':'collapse' " class="col-1 text-center"> <i class="fas fa-check"></i> </td>
+            <td></td>
         </tr>
     </tbody>
 </table>

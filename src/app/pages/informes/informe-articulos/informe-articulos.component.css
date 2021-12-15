@@ -3,13 +3,13 @@
 }
 
 .informe {
-    width: 50%;
+    width: 60%;
     margin: auto;
     background-color: rgb(39, 89, 131);
 }
 
 .card {
-    width: 20rem;
+    width: 25rem;
     padding: unset;
     background-color: rgb(39, 89, 131);
     border-color: white;

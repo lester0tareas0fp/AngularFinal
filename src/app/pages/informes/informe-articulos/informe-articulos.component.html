@@ -1,78 +1,80 @@
-<div class="row informe mt-5 ">
+<table class="table informe mt-5">
+    <thead>
+        <tr>
+            <td colspan="12">
+                <h2>
+                    Informe de artículos
+                </h2>
+            </td>
+        </tr>
+    </thead>
 
-    <h2>
-        Informe de artículos
-    </h2>
+    <tr>
+        <td></td>
+        <td>ID</td>
+        <td>Articulo</td>
+        <td>Fabricante</td>
+        <td>Peso</td>
+        <td>Largo</td>
+        <td>Ancho</td>
+        <td>Alto</td>
+        <td>Precio</td>
+        <td>Estado</td>
+        <td>Cantidad</td>
+        <td></td>
+    </tr>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <td>ID</td>
-                <td>Articulo</td>
-                <td>Fabricante</td>
-                <td>Peso</td>
-                <td>Largo</td>
-                <td>Ancho</td>
-                <td>Alto</td>
-                <td>Precio</td>
-                <td>Estado</td>
-                <td>Cantidad</td>
-                <td></td>
-            </tr>
-        </thead>
+    <tbody *ngFor="let articulo of articulos">
 
-        <tbody *ngFor="let articulo of articulos">
+        <tr>
+            <td></td>
+            <td>{{ articulo.iD_ARTICULO }}</td>
+            <td>{{ articulo.fabricante }}</td>
+            <td>{{ articulo.articulo }}</td>
+            <td>{{ articulo.peso }}</td>
+            <td>{{ articulo.largo }}</td>
+            <td>{{ articulo.ancho }}</td>
+            <td>{{ articulo.alto }}</td>
+            <td>{{ articulo.precio }}</td>
+            <td>{{ articulo.iD_ESTADO_ARTICULO | estado_articulo }}</td>
+            <td>{{ cantidadStock[articulo.iD_ARTICULO]}}</td>
+            <td *ngIf="!mostrar[articulo.iD_ARTICULO]"><button type="button" class="btn btn-secondary" (click)="mostrarDetalle(articulo.iD_ARTICULO)">Mostrar detalle</button></td>
+            <td *ngIf="mostrar[articulo.iD_ARTICULO]"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(articulo.iD_ARTICULO)">Ocultar Detalle</button></td>
+        </tr>
 
-            <tr>
-                <td>{{ articulo.iD_ARTICULO }}</td>
-                <td>{{ articulo.fabricante }}</td>
-                <td>{{ articulo.articulo }}</td>
-                <td>{{ articulo.peso }}</td>
-                <td>{{ articulo.largo }}</td>
-                <td>{{ articulo.ancho }}</td>
-                <td>{{ articulo.alto }}</td>
-                <td>{{ articulo.precio }}</td>
-                <td>{{ articulo.iD_ESTADO_ARTICULO }}</td>
-                <td>{{ cantidadStock[articulo.iD_ARTICULO]}}</td>
-                <td *ngIf="!mostrar[articulo.iD_ARTICULO]"><button type="button" class="btn btn-secondary" (click)="mostrarDetalle(articulo.iD_ARTICULO)">Mostrar detalle</button></td>
-                <td *ngIf="mostrar[articulo.iD_ARTICULO]"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(articulo.iD_ARTICULO)">Ocultar Detalle</button></td>
-            </tr>
+        <tr [ngClass]="mostrar[articulo.iD_ARTICULO]? 'visible': 'collapse'" class="detalle">
+            <td colspan="12" class="detalle">
 
-            <tr [ngClass]="mostrar[articulo.iD_ARTICULO]? 'visible': 'collapse'" class="detalle">
-                <td colspan="12" class="detalle">
+                <div class="card float-end">
 
-                    <div class="card float-end">
+                    <div class="card-header">
 
-                        <div class="card-header">
+                        <div [ngClass]="mostrar[articulo.iD_ARTICULO]? 'visible': 'collapse'" class="row text-end">
 
-                            <div [ngClass]="mostrar[articulo.iD_ARTICULO]? 'visible': 'collapse'" class="row text-end">
-
-                                <div class="col">Almacén</div>
-                                <div class="col">Cantidad</div>
-                            </div>
-
+                            <div class="col">Almacén</div>
+                            <div class="col">Cantidad</div>
                         </div>
 
-                        <div class="card-body">
+                    </div>
 
-                            <div *ngFor="let articulo of informeArticulo[articulo.iD_ARTICULO]" [ngClass]="mostrar[articulo.iD_ARTICULO]? 'visible': 'collapse'" class="row text-end">
+                    <div class="card-body">
 
-                                <div class="col">{{ articulo.iD_ALMACEN }}</div>
-                                <div class="col">{{ articulo.cantidad }}</div>
+                        <div *ngFor="let articulo of informeArticulo[articulo.iD_ARTICULO]" [ngClass]="mostrar[articulo.iD_ARTICULO]? 'visible': 'collapse'" class="row text-end">
 
-                                <hr>
+                            <div class="col">{{ articulo.iD_ALMACEN | nombre_almacen }}</div>
+                            <div class="col">{{ articulo.cantidad }}</div>
 
-                            </div>
+                            <hr>
 
                         </div>
 
                     </div>
 
-                </td>
-            </tr>
+                </div>
 
-        </tbody>
+            </td>
+        </tr>
 
-    </table>
+    </tbody>
 
-</div>
+</table>

@@ -1,13 +1,9 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { Articulo } from '../../articulos/interfaces/articulo.interface';
-import { ArticulosService } from "../../articulos/services/articulos.service";
-
-
 
 @Pipe({
-    name: 'estado'
+    name: 'estado_pedido'
 })
-export class EstadoPipe implements PipeTransform{
+export class EstadoPedidoPipe implements PipeTransform{
 
 
     constructor( )

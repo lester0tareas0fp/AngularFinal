@@ -7,6 +7,7 @@ import { CrearUsuariosComponent } from './crear-usuarios/crear-usuarios.componen
 import { ActualizarUsuariosComponent } from './actualizar-usuarios/actualizar-usuarios.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormularioComponentComponent } from './components/formulario-component/formulario-component.component';
+import { PerfilUsuarioPipe } from './pipes/perfil-usuario.pipe';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormularioComponentComponent } from './components/formulario-component/
     VerUsuariosComponent,
     CrearUsuariosComponent,
     ActualizarUsuariosComponent,
-    FormularioComponentComponent
+    FormularioComponentComponent,
+    PerfilUsuarioPipe
   ],
   imports: [
     CommonModule,

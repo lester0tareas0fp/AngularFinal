@@ -6,6 +6,8 @@ import { CrearArticulo } from '../interfaces/crearArticulo.interface';
 import { Imagen } from '../interfaces/imagen.interface';
 import { InsertarStock } from '../interfaces/insertar-stock.interface';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-crear-articulos',
   templateUrl: './crear-articulos.component.html',
@@ -104,13 +106,23 @@ export class CrearArticulosComponent implements OnInit{
 
             this.service.agregarStock(nuevo_stock).subscribe();
 
-            window.location.reload()
+            Swal.fire({
+              icon: 'success',
+              title: 'Se ha creado el artículo correctamente',
+              showConfirmButton: false,
+              timer: (1000),
+              
+            }).then( ()=> window.location.reload())
         }
         
       },
-      error =>
+      httpResponse =>
       {
-        console.log(error)
+        Swal.fire({
+          icon: 'error',
+          title: "El artículo ya existe "+httpResponse,
+          showConfirmButton: false,
+        })
       }
     );
 

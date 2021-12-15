@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticulosService } from '../services/articulos.service';
+import { Articulo } from '../interfaces/articulo.interface';
 
 @Component({
   selector: 'app-articulos',
@@ -8,7 +9,7 @@ import { ArticulosService } from '../services/articulos.service';
 })
 export class VerArticulosComponent implements OnInit {
 
-  articulos: any[] = [];
+  articulos: Articulo[] = [];
   img: string[] = [];
   total_articulos!: number;
 
@@ -31,7 +32,7 @@ export class VerArticulosComponent implements OnInit {
     for (let i = 0; i< this.total_articulos; i++ )
     {
       const id_articulo = this.articulos[i].iD_ARTICULO;
-      //console.log(id_articulo)
+      
       this.service.getImagen(id_articulo).subscribe( resp =>
         {
           this.img[id_articulo] = resp.imagen;

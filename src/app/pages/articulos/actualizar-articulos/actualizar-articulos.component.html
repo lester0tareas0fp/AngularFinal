@@ -8,6 +8,8 @@
 
                     <div class="card-header">
                         <b>Actualizar artículo</b>
+                        <i [ngClass]="articulo.iD_ESTADO_ARTICULO == 1? 'visible':'collapse'" class="fas fa-check float-end"></i>
+                        <i [ngClass]="articulo.iD_ESTADO_ARTICULO == 2? 'visible':'collapse'" class="fas fa-times float-end"></i>
                     </div>
 
                     <div class="card-body">
@@ -152,14 +154,14 @@
                             </div>
                         </div>
 
-                        <div class="row d-flex justify-content-end">
+                        <div class="row justify-content-end">
 
-                            <div class="col-2" [ngClass]="perfil!<=2? 'visible': 'invisible'">
-                                <button type="submit" class="btn update" [disabled]="actualizarArticuloForm.invalid || articulo.iD_ESTADO_ARTICULO == 2">Actualizar</button>
+                            <div class="col-2 justify-content-center" [ngClass]="perfil!<=2 && articulo.iD_ESTADO_ARTICULO == 1? 'visible': 'collapse'">
+                                <button type="submit" class="btn update" [disabled]="actualizarArticuloForm.invalid || articulo.iD_ESTADO_ARTICULO == 2 || !(perfil!<=2)">Actualizar</button>
                             </div>
 
-                            <div class="col-2" [ngClass]="perfil==1? 'visible': 'invisible'">
-                                <button type="button" class="btn danger" [disabled]="articulo.iD_ESTADO_ARTICULO == 2" (click)="borrarArticulo()">Borrar</button>
+                            <div class="col-2" [ngClass]="perfil==1 && articulo.iD_ESTADO_ARTICULO == 1? 'visible': 'collapse'">
+                                <button type="button" class="btn danger" [disabled]="articulo.iD_ESTADO_ARTICULO == 2 || perfil!=1" (click)="borrarArticulo()">Borrar</button>
                             </div>
 
                         </div>

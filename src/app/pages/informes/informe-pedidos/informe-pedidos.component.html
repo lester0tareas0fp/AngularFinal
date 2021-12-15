@@ -1,80 +1,83 @@
-<div class="row informe mt-5">
+<table class="table informe mt-5">
 
-    <h2>
-        Informe de pedidos
-    </h2>
+    <thead>
+        <tr>
+            <td colspan="7">
+                <h2>
+                    Informe de pedidos
+                </h2>
+            </td>
+        </tr>
+    </thead>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <td class="col-2">ID Pedido</td>
-                <td>Usuario</td>
-                <td>Estado pedido</td>
-                <td class="col-3">Fecha creación</td>
-                <td></td>
-                <td class="col-2"></td>
-            </tr>
-        </thead>
+    <tr>
+        <td></td>
+        <td class="col-2">ID Pedido</td>
+        <td>Usuario</td>
+        <td>Estado pedido</td>
+        <td class="col-3">Fecha creación</td>
+        <td></td>
+        <td class="col-2"></td>
+    </tr>
 
-        <tbody *ngFor="let pedido of pedidos">
+    <tbody *ngFor="let pedido of pedidos">
 
-            <tr>
-                <td class="col-1">{{ pedido.iD_PEDIDO }}</td>
-                <td><pre>{{ pedido.iD_USUARIO | usuario | async}}</pre></td>
-                <td>{{ estadoPedido[pedido.iD_PEDIDO] | estado }}</td>
-                <td>{{ pedido.fecha }}</td>
-                <td></td>
-                <td *ngIf="!mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-secondary " (click)="mostrarDetalle(pedido.iD_PEDIDO)">Mostrar detalle</button></td>
-                <td *ngIf="mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(pedido.iD_PEDIDO)">Ocultar Detalle</button></td>
-            </tr>
-
+        <tr>
+            <td></td>
+            <td class="col-1">{{ pedido.iD_PEDIDO }}</td>
+            <td><pre>{{ pedido.iD_USUARIO | usuario | async}}</pre></td>
+            <td>{{ estadoPedido[pedido.iD_PEDIDO] | estado_pedido }}</td>
+            <td>{{ pedido.fecha }}</td>
+            <td></td>
+            <td *ngIf="!mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-secondary " (click)="mostrarDetalle(pedido.iD_PEDIDO)">Mostrar detalle</button></td>
+            <td *ngIf="mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(pedido.iD_PEDIDO)">Ocultar Detalle</button></td>
+        </tr>
 
 
 
 
-            <tr [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="detalle">
-                <td colspan="12" class="detalle">
 
-                    <div class="card float-end">
+        <tr [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="detalle">
+            <td colspan="12" class="detalle">
 
-                        <div class="card-header">
+                <div class="card float-end">
 
-                            <div [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="row text-end">
+                    <div class="card-header">
 
-                                <div class="col">ID Artículo</div>
-                                <div class="col">Artículo</div>
-                                <div class="col">Cantidad</div>
-                                <div class="col">Estado</div>
-                                <div class="col">Almacén</div>
+                        <div [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="row text-end">
 
-                            </div>
-
-                        </div>
-
-                        <div class="card-body">
-
-                            <div *ngFor="let seccion of seccionesPedido[pedido.iD_PEDIDO]" [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="row text-end">
-
-                                <div class="col">{{ seccion.iD_ARTICULO }}</div>
-                                <div class="col">{{ seccion.iD_ARTICULO | articulo | async}}</div>
-                                <div class="col">{{ seccion.cantidad }}</div>
-                                <div class="col">{{ seccion.iD_ESTADO_PEDIDO }}</div>
-                                <div class="col">{{ seccion.iD_STOCK | almacen | async }}</div>
-
-                                <hr>
-
-                            </div>
+                            <div class="col">ID Artículo</div>
+                            <div class="col">Artículo</div>
+                            <div class="col">Cantidad</div>
+                            <div class="col">Estado</div>
+                            <div class="col">Almacén</div>
 
                         </div>
 
                     </div>
 
-                </td>
-            </tr>
+                    <div class="card-body">
+
+                        <div *ngFor="let seccion of seccionesPedido[pedido.iD_PEDIDO]" [ngClass]="mostrar[pedido.iD_PEDIDO]? 'visible': 'collapse'" class="row text-end">
+
+                            <div class="col">{{ seccion.iD_ARTICULO }}</div>
+                            <div class="col">{{ seccion.iD_ARTICULO | articulo | async}}</div>
+                            <div class="col">{{ seccion.cantidad }}</div>
+                            <div class="col">{{ seccion.iD_ESTADO_PEDIDO | estado_pedido }}</div>
+                            <div class="col">{{ seccion.iD_STOCK | almacen | async | nombre_almacen }}</div>
+
+                            <hr>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </td>
+        </tr>
 
 
-        </tbody>
+    </tbody>
 
-    </table>
-
-</div>
+</table>

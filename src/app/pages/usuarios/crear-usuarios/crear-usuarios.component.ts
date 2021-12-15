@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { CreateUsuario } from '../interfaces/usuario.interface';
 import { UsuariosService } from '../services/usuarios.service';
 
+import Swal from 'sweetalert2';
+import { timer } from 'rxjs';
+
 @Component({
   selector: 'app-crear-usuarios',
   templateUrl: './crear-usuarios.component.html',
@@ -45,15 +48,35 @@ export class CrearUsuariosComponent implements OnInit {
     }
 
     this.service.createUsuario(this.nuevoUsuario).subscribe( resp =>
-      {
-        console.log(resp)
+      {      
+
       },
-      error =>
+      httpResponse =>
       {
-        console.log(error)
+
+        if(httpResponse.status==200)
+        {
+          Swal.fire({
+            icon: 'success',
+            title: 'Se ha creado el usuario correctamente',
+            showConfirmButton: false,
+          })
+
+          this.router.navigate(['/usuarios/ver'])
+          
+        }else{
+
+          Swal.fire({
+            icon: 'error',
+            title: httpResponse.error,
+            showConfirmButton: false,
+          })
+
+        }
+        
       })
 
-      this.router.navigate(['/usuarios/ver'])
+      
 
   }
 

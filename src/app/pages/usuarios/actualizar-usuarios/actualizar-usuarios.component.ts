@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+
+import Swal from 'sweetalert2'
 
 import { Usuario, UpdateUsuario } from '../interfaces/usuario.interface';
 import { UsuariosService } from '../services/usuarios.service';
-import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-actualizar-usuarios',
@@ -79,18 +81,35 @@ export class ActualizarUsuariosComponent implements OnInit {
         'id_perfil':  this.actualizarUsuariosForm.get('id_perfil')?.value
     }
 
-    console.log(this.usuarioUpdate);
-
     this.service.actualizarUsuario(this.usuarioUpdate).subscribe( resp =>
       {
-        console.log(resp);
+
+
       },
-      error =>
+      httpResponse =>
       {
 
-      });
+        if(httpResponse.status==200)
+        {
+          Swal.fire({
+            icon: 'success',
+            title: 'Se ha actualizado el usuario correctamente',
+            showConfirmButton: false,
+            timer: (1000),
+            
+          }).then( ()=> window.location.reload())
+          
+        }else{
 
-      window.location.reload();
+          Swal.fire({
+            icon: 'error',
+            title: httpResponse.error,
+            showConfirmButton: false,
+          })
+
+        }
+
+      });      
 
   }
 

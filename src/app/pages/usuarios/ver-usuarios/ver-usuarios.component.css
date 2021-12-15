@@ -1,0 +1,19 @@
+.row {
+    margin: unset;
+}
+
+.listado {
+    width: 50%;
+    margin: auto;
+    background-color: rgb(39, 89, 131);
+}
+
+.table {
+    background-color: rgb(39, 89, 131);
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    color: rgb(236, 236, 236);
+}

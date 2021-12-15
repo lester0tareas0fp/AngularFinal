@@ -3,3 +3,11 @@
 body {
     background-color: rgb(240, 243, 245);
 }
+
+.fa-check {
+    color: rgb(40, 218, 48);
+}
+
+.fa-times {
+    color: red;
+}

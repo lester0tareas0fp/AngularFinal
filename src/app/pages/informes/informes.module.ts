@@ -10,7 +10,9 @@ import { InformeArticulosComponent } from './informe-articulos/informe-articulos
 import { UsuarioPipe } from './pipes/usuario.pipe';
 import { ArticuloPipe } from './pipes/articulo.pipe';
 import { AlmacenPipe } from './pipes/almacen.pipe';
-import { EstadoPipe } from './pipes/estado.pipe';
+import { EstadoPedidoPipe } from './pipes/estado-pedido.pipe';
+import { EstadoArticuloPipe } from './pipes/estado-articulo.pipe';
+import { NombreAlmacenPipe } from './pipes/nombre-almacen.pipe';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { EstadoPipe } from './pipes/estado.pipe';
     UsuarioPipe,
     ArticuloPipe,
     AlmacenPipe,
-    EstadoPipe
+    EstadoPedidoPipe,
+    EstadoArticuloPipe,
+    NombreAlmacenPipe
   ],
   imports: [
     CommonModule,

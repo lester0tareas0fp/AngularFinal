@@ -35,7 +35,7 @@ export class UsuarioAdministradorGuard implements CanActivate {
   }
 
   canActivate(): boolean{
-    console.log("UsuarioAdministradorGuard", this.can)
+    
    return this.can;
   }
 

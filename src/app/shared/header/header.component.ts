@@ -113,8 +113,6 @@ export class HeaderComponent implements OnInit {
 
   irArticulosBusqueda( evento: any){
 
-    console.log(evento)
-
     if( this.buscador.nativeElement.value != "" && (evento.key == "Enter" || evento.pointerId == 1 ) )
     {
       this.route.navigate(['/articulos/busqueda'], { queryParams: { busqueda: this.buscador.nativeElement.value } })

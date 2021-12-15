@@ -6,6 +6,8 @@
 
             <div class="card-header">
                 <b>{{articulo.articulo}}</b>
+                <i [ngClass]="articulo.iD_ESTADO_ARTICULO == 1? 'visible':'collapse'" class="fas fa-check float-end"></i>
+                <i [ngClass]="articulo.iD_ESTADO_ARTICULO == 2? 'visible':'collapse'" class="fas fa-times float-end"></i>
             </div>
 
             <div class="card-body">

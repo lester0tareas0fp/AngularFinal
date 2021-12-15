@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import Swal from 'sweetalert2'
+
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 import { Articulo } from '../interfaces/articulo.interface';
@@ -120,20 +122,20 @@ export class ActualizarArticulosComponent implements OnInit {
 
       {
         'imagen': [],
-        'articulo': [{ value: articulo, disabled: (this.perfil! > 1) }, [Validators.required, Validators.minLength(2)]],
-        'descripcion': [{ value: descripcion, disabled: (this.perfil! > 1) }, [Validators.required, Validators.minLength(2)]],
-        'fabricante': [{ value: fabricante, disabled: (this.perfil! > 1) }, [Validators.required, Validators.minLength(2)]],
-        'peso': [{ value: peso, disabled: (this.perfil! > 1) }, [Validators.required, Validators.min(0)]],
-        'largo': [{ value: largo, disabled: (this.perfil! > 1) }, [Validators.required, Validators.min(0)] ],
-        'ancho': [{ value: ancho, disabled: (this.perfil! > 1) }, [Validators.required, Validators.min(0)]],
-        'alto': [{ value: alto, disabled: (this.perfil! > 1) }, [Validators.required, Validators.min(0)]],
-        'precio': [{ value: precio, disabled: (this.perfil! > 1) }, [Validators.required, Validators.min(0)]],
+        'articulo': [{ value: articulo, disabled: (this.perfil! > 1 || this.articulo.iD_ESTADO_ARTICULO! != 1) }, [Validators.required, Validators.minLength(2)]],
+        'descripcion': [{ value: descripcion, disabled: (this.perfil! > 1 || this.articulo.iD_ESTADO_ARTICULO!! != 1) }, [Validators.required, Validators.minLength(2)]],
+        'fabricante': [{ value: fabricante, disabled: (this.perfil! > 1 || this.articulo.iD_ESTADO_ARTICULO!! != 1) }, [Validators.required, Validators.minLength(2)]],
+        'peso': [{ value: peso, disabled: (this.perfil! > 1 || this.articulo.iD_ESTADO_ARTICULO!! != 1) }, [Validators.required, Validators.min(0)]],
+        'largo': [{ value: largo, disabled: (this.perfil! > 1 || this.articulo.iD_ESTADO_ARTICULO! != 1) }, [Validators.required, Validators.min(0)] ],
+        'ancho': [{ value: ancho, disabled: (this.perfil! > 1 || this.articulo.iD_ESTADO_ARTICULO! != 1) }, [Validators.required, Validators.min(0)]],
+        'alto': [{ value: alto, disabled: (this.perfil! > 1 || this.articulo.iD_ESTADO_ARTICULO! != 1) }, [Validators.required, Validators.min(0)]],
+        'precio': [{ value: precio, disabled: (this.perfil! > 1 || this.articulo.iD_ESTADO_ARTICULO! != 1) }, [Validators.required, Validators.min(0)]],
         'stock1v': [this.stock[0].cantidad],
         'stock2v': [this.stock[1].cantidad],
         'stock3v': [this.stock[2].cantidad],
-        'stock1': [{ value: 0, disabled: (this.perfil! > 2) }, [Validators.min(0), RxwebValidators.numeric({allowDecimal:false})]],
-        'stock2': [{ value: 0, disabled: (this.perfil! > 2) }, [Validators.min(0), RxwebValidators.numeric({allowDecimal:false})]],
-        'stock3': [{ value: 0, disabled: (this.perfil! > 2) }, [Validators.min(0), RxwebValidators.numeric({allowDecimal:false})]],
+        'stock1': [{ value: 0, disabled: (this.perfil! > 2 || this.articulo.iD_ESTADO_ARTICULO! != 1) }, [Validators.min(0), RxwebValidators.numeric({allowDecimal:false})]],
+        'stock2': [{ value: 0, disabled: (this.perfil! > 2 || this.articulo.iD_ESTADO_ARTICULO! != 1) }, [Validators.min(0), RxwebValidators.numeric({allowDecimal:false})]],
+        'stock3': [{ value: 0, disabled: (this.perfil! > 2 || this.articulo.iD_ESTADO_ARTICULO! != 1) }, [Validators.min(0), RxwebValidators.numeric({allowDecimal:false})]],
         'anadir': [0,[Validators.min(0), Validators.max(maxStock), RxwebValidators.numeric({allowDecimal:false})]],
       }
     )
@@ -206,11 +208,11 @@ export class ActualizarArticulosComponent implements OnInit {
 
         this.service.agregarStock(agregarStock).subscribe( resp =>
           {
-            console.log(resp,' resp', this.stock)
+            // console.log(resp,' resp', this.stock)
           },
           error =>
           {
-            console.log(error,' error')
+            // console.log(error,' error')
           } 
         );
 
@@ -218,7 +220,13 @@ export class ActualizarArticulosComponent implements OnInit {
       
     }
 
-    window.location.reload();
+    Swal.fire({
+      icon: 'success',
+      title: 'Se ha actualizado el artículo correctamente',
+      showConfirmButton: false,
+      timer: (1000),
+      
+    }).then( ()=> window.location.reload())
 
   }
 
@@ -262,7 +270,7 @@ export class ActualizarArticulosComponent implements OnInit {
     if (cantidadCesta > this.max)
     {
       
-      return console.log('stock mayor del permitido', this.max, ' aceptado, tu peticion ', cantidadCesta);
+      return;
     }
 
 
@@ -270,25 +278,66 @@ export class ActualizarArticulosComponent implements OnInit {
     {
         this.store.dispatch( ca.updateArticulo({id_articulo: carrito.id_articulo, cantidad: carrito.cantidad}) )
 
+        Swal.fire({
+          icon: 'success',
+          title: 'Artículo actualizado en el carrito correctamente',
+          showConfirmButton: false,
+          timer: (1000),
+          
+        }).then( ()=> window.location.reload())
+
 
     }else{
 
 
         this.store.dispatch( ca.fillCarrito({carrito}));
-    }
 
-    window.location.reload();
+        Swal.fire({
+          icon: 'success',
+          title: 'Artículo agregado al carrito correctamente',
+          showConfirmButton: false,
+          timer: (1000),
+          
+        }).then( ()=> window.location.reload())
+    }
 
   }
 
   borrarArticulo()
   {
-    this.service.deleteArticulo({id_articulo: this.stock[0].iD_ARTICULO}).subscribe(resp =>
-      {
-        console.log(resp);
-      });
+    
+    Swal.fire({
+      title: '¿Está seguro que desea borrar este artículo?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: 'grey',
+      confirmButtonText: 'Borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
 
-      window.location.reload();
+      if (result.isConfirmed)
+      {
+        this.service.deleteArticulo({id_articulo: this.stock[0].iD_ARTICULO}).subscribe(resp =>
+          {
+
+            Swal.fire({
+              icon: 'success',
+              title: 'Artículo borrado con éxito',
+              showConfirmButton: false,
+              timer: (1000),
+              
+            }).then( ()=> window.location.reload())
+            
+          });
+          
+      }else{
+
+        return;
+      }
+
+    })
+    
   }
 
 }

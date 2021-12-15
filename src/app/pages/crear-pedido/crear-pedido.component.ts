@@ -6,6 +6,8 @@ import { Subscription } from 'rxjs';
 
 import { Store } from '@ngrx/store';
 
+import Swal from 'sweetalert2'
+
 import { Carrito } from '../carrito/interfaces/carrito.interface';
 import { CarritoService } from '../articulos/services/carrito.service';
 import { Pedido } from './interfaces/pedido.interface';
@@ -64,7 +66,7 @@ export class CrearPedidoComponent implements OnInit {
       })
 
       if (carritos.length <= 0){
-        console.log('no hay elemnetos en el carrito')
+
         return;
       }
 
@@ -101,21 +103,32 @@ export class CrearPedidoComponent implements OnInit {
           {
               this.servicio.crearSeccionPedido({ id_pedido: id_pedido, id_articulo: carrito.id_articulo, cantidad: carrito.cantidad}).subscribe( resp =>
                 {
-                  console.log(resp)
+                  //console.log('resp',resp)
                 },
                 error =>
                 {
-                  console.log(error)
+                  // console.log('error', error)
                 })
                 
           })
         
-      });    
+      });
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'Pedido creado correctamente',
+        showConfirmButton: false,
+        timer: (1000),
+        
+      }).then( ()=> 
+      {
+        this.store.dispatch( emptyCarrito() );
+        this.store.dispatch( unsetCarrito() );
+    
+        this.router.navigate(['/Articulos/verArticulos']);
+      })
 
-    this.store.dispatch( emptyCarrito() );
-    this.store.dispatch( unsetCarrito() );
-
-    this.router.navigate(['/Articulos/verArticulos'])
+    
      
     
   }

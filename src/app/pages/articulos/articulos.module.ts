@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { CarritoComponent } from '../carrito/carrito.component';
 import { CrearPedidoComponent } from '../crear-pedido/crear-pedido.component';
 import { BusquedaArticulosComponent } from './busqueda-articulos/busqueda-articulos.component';
+import { ParrafoMayusculaPipe } from '../../core/pipes/parrafo-mayuscula.pipe';
 
 
 
@@ -20,7 +21,8 @@ import { BusquedaArticulosComponent } from './busqueda-articulos/busqueda-articu
     ActualizarArticulosComponent,
     CarritoComponent,
     CrearPedidoComponent,
-    BusquedaArticulosComponent
+    BusquedaArticulosComponent,
+    ParrafoMayusculaPipe
   ],
   imports: [
     CommonModule,

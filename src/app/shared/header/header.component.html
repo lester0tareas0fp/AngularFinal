@@ -21,7 +21,7 @@
                     </div>
                 </li>
 
-                <div class="encontrado" *ngFor="let articulo of listadoBusqueda" [ngClass]="mostrar? 'visible' : 'invisible'">
+                <div class="encontrado" *ngFor="let articulo of listadoBusqueda" [ngClass]="mostrar? 'visible' : 'collapse'">
                     <li [routerLink]="['/articulos/actualizar']" [queryParams]="{id_articulo: articulo.id_articulo}" routerLinkActive="true" (click)="limpiarBuscador()">
 
                         <input type="text" class="form-control articulo" [placeholder]="articulo.articulo" disabled>

@@ -22,6 +22,7 @@
         <td>Estado</td>
         <td>Cantidad</td>
         <td></td>
+        <td></td>
     </tr>
 
     <tbody *ngFor="let articulo of articulos">
@@ -38,8 +39,9 @@
             <td>{{ articulo.precio }}</td>
             <td>{{ articulo.iD_ESTADO_ARTICULO | estado_articulo }}</td>
             <td>{{ cantidadStock[articulo.iD_ARTICULO]}}</td>
-            <td *ngIf="!mostrar[articulo.iD_ARTICULO]"><button type="button" class="btn btn-secondary" (click)="mostrarDetalle(articulo.iD_ARTICULO)">Mostrar detalle</button></td>
-            <td *ngIf="mostrar[articulo.iD_ARTICULO]"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(articulo.iD_ARTICULO)">Ocultar Detalle</button></td>
+            <td [ngClass]="!mostrar[articulo.iD_ARTICULO]? '':'d-none'"><button type="button" class="btn btn-secondary" (click)="mostrarDetalle(articulo.iD_ARTICULO)">Mostrar detalle</button></td>
+            <td [ngClass]="mostrar[articulo.iD_ARTICULO]? '':'d-none'"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(articulo.iD_ARTICULO)">Ocultar Detalle</button></td>
+            <td></td>
         </tr>
 
         <tr [ngClass]="mostrar[articulo.iD_ARTICULO]? 'visible': 'collapse'" class="detalle">

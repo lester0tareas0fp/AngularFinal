@@ -29,8 +29,8 @@
             <td>{{ estadoPedido[pedido.iD_PEDIDO] | estado_pedido }}</td>
             <td>{{ pedido.fecha }}</td>
             <td></td>
-            <td *ngIf="!mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-secondary " (click)="mostrarDetalle(pedido.iD_PEDIDO)">Mostrar detalle</button></td>
-            <td *ngIf="mostrar[pedido.iD_PEDIDO]"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(pedido.iD_PEDIDO)">Ocultar Detalle</button></td>
+            <td [ngClass]="!mostrar[pedido.iD_PEDIDO]? '':'d-none'"><button type="button" class="btn btn-secondary " (click)="mostrarDetalle(pedido.iD_PEDIDO)">Mostrar detalle</button></td>
+            <td [ngClass]="mostrar[pedido.iD_PEDIDO]? '':'d-none'"><button type="button" class="btn btn-danger" (click)="ocultarDetalle(pedido.iD_PEDIDO)">Ocultar Detalle</button></td>
         </tr>
 
 

@@ -4,8 +4,9 @@ import { CarritoComponent } from "../pages/carrito/carrito.component";
 import { CrearPedidoComponent } from "../pages/crear-pedido/crear-pedido.component";
 import { InformesComponent } from "../pages/informes/informes.component";
 import { UsuariosComponent } from "../pages/usuarios/usuarios.component";
+import { CarritoGuard } from "./guards/carrito.guard";
 import { InformesGuard } from './guards/informes.guard';
-import { UsuariosGuard } from './guards/usuario.guard';
+import { PedidoGuard } from './guards/pedido.guard';
 
 export const dashboardRoutes: Routes = [
     { 
@@ -24,11 +25,13 @@ export const dashboardRoutes: Routes = [
             },
             {
                 path: 'carrito', 
-                component: CarritoComponent
+                component: CarritoComponent,
+                canActivate: [CarritoGuard]
             },
             {
                 path: 'crear-pedido', 
-                component: CrearPedidoComponent
+                component: CrearPedidoComponent,
+                canActivate: [PedidoGuard]
             },
             {
                 path: 'informes', component: InformesComponent,

@@ -20,3 +20,14 @@
 img {
     vertical-align: unset;
 }
+
+.card-header,
+.card-footer {
+    background-color: rgb(39, 89, 131);
+    color: white;
+}
+
+.fas:hover {
+    cursor: pointer;
+    color: red;
+}

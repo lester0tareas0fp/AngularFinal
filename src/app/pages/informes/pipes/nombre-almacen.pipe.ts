@@ -30,7 +30,7 @@ export class NombreAlmacenPipe implements PipeTransform{
 
         }else{
 
-            return 'Error'
+            return 'Sin stock'
         }
            
         

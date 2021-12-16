@@ -22,10 +22,7 @@
     width: 100%
 }
 
-.orden {
-    line-height: 50%;
-}
-
+.orden,
 .desc {
     line-height: 150%;
 }

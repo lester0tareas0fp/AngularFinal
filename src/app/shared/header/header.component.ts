@@ -45,6 +45,9 @@ export class HeaderComponent implements OnInit {
         if (ca.length > 0)
         {
           this.store.dispatch( setCarrito() )
+        }else{
+
+          this.store.dispatch( unsetCarrito() );
         }
       })
 
@@ -78,9 +81,7 @@ export class HeaderComponent implements OnInit {
 
   stateMenu(e:Event)
   {
-    e.stopPropagation()
-    
-      
+    e.stopPropagation()   
 
     if ( this.activeMenu == true )
     {

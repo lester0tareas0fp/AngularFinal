@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 import { Carrito } from './interfaces/carrito.interface';
-import { emptyCarrito } from './store/carrito.actions';
+import { emptyCarrito, eraseArticulo } from './store/carrito.actions';
 import { unsetCarrito } from './store/estado-carrito.action';
 import { Subscription } from 'rxjs';
 
@@ -22,18 +22,17 @@ export class CarritoComponent implements OnInit {
 
   constructor( private store: Store<AppState>, private router: Router ) 
   { 
-
-  }
-
-  ngOnInit(): void {
-
     this.subscription = this.store.select('ca').subscribe( ca =>
       {
         this.carritos = ca;
       } 
     )
 
-    this.subscription.unsubscribe();
+  }
+
+  ngOnInit(): void {
+
+
 
   }
 
@@ -43,6 +42,11 @@ export class CarritoComponent implements OnInit {
     this.store.dispatch( unsetCarrito() );
 
     this.router.navigate(['/articulos']);
+  }
+
+  eliminarArticulo(id_articulo: number)
+  {
+    this.store.dispatch( eraseArticulo( { id_articulo } ) );
   }
   
 }

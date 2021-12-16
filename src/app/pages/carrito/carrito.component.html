@@ -8,10 +8,10 @@
                 <div class="col-3">
                 </div>
                 <div class="col-3 text-center">
-                    cantidad
+                    Cantidad
                 </div>
                 <div class="col-6">
-                    artículo
+                    Artículo
                 </div>
             </div>
 
@@ -29,8 +29,12 @@
                     {{ carrito.cantidad }}
                 </div>
 
-                <div class="col-6">
+                <div class="col-3">
                     {{ carrito.nombre_articulo }}
+                </div>
+
+                <div class="col-3">
+                    <i class="fas fa-trash-alt" (click)="eliminarArticulo(carrito.id_articulo)"></i>
                 </div>
 
                 <hr>

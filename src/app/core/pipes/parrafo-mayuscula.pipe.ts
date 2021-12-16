@@ -13,7 +13,7 @@ export class ParrafoMayusculaPipe implements PipeTransform{
     
     transform(parrafo: string) {
 
-        return parrafo[0].toLocaleUpperCase()+parrafo.substring(1).toLocaleLowerCase();
+        return parrafo[0].toLocaleUpperCase()+parrafo.substring(1).toLocaleLowerCase()+'.';
            
     } 
 

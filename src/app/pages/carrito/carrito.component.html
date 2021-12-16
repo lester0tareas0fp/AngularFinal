@@ -22,11 +22,11 @@
             <div class="row" *ngFor="let carrito of carritos">
 
                 <div class="col-3 text-center">
-                    <img [src]="carrito.imagen" width="50px" height="50px">
+                    <img [src]="carrito.imagen" width="50px" height="50px" [routerLink]="['/articulos/actualizar']" [queryParams]="{id_articulo: carrito.id_articulo}" routerLinkActive="true">
                 </div>
 
                 <div class="col-3 text-center">
-                    {{ carrito.cantidad }}
+                    <i class="fas fa-minus" (click)="restar(carrito.id_articulo)"></i> <b> / {{ cantidad[carrito.id_articulo] }} / </b> <i class="fas fa-plus" (click)="sumar(carrito.id_articulo)"></i>
                 </div>
 
                 <div class="col-3">

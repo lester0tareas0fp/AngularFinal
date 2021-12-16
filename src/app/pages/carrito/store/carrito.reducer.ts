@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { carritoInitialState } from '../interfaces/carrito.interface';
-import { fillCarrito, emptyCarrito, updateArticulo, eraseArticulo } from './carrito.actions';
+import { fillCarrito, emptyCarrito, updateArticulo, eraseArticulo, cambiarCantidad } from './carrito.actions';
 
 const _cReducer = createReducer( carritoInitialState,
     on( fillCarrito, ( state, { carrito } ) =>  (state).concat(carrito) ),
@@ -12,6 +12,19 @@ const _cReducer = createReducer( carritoInitialState,
                 if(articulos.id_articulo == id_articulo )
                 {
                     return { ...articulos, cantidad: (cantidad + articulos.cantidad)};
+                }else{
+                    return articulos;
+                }
+            })
+    }),
+
+    on( cambiarCantidad, ( state, { id_articulo, cantidad }) => {
+
+        return state.map( articulos =>
+            {
+                if(articulos.id_articulo == id_articulo )
+                {
+                    return { ...articulos, cantidad: (cantidad)};
                 }else{
                     return articulos;
                 }

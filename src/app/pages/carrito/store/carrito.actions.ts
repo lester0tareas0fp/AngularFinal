@@ -16,6 +16,11 @@ export const eraseArticulo = createAction(
     props<{id_articulo: number}>()
 )
 
+export const cambiarCantidad = createAction(
+    '[CA] Cambiar Cantidad',
+    props<{ id_articulo: number, cantidad: number }>()
+)
+
 export const emptyCarrito = createAction(
     '[CA] Unset Carrito'
 );

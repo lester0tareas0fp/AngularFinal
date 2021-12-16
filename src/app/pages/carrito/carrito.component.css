@@ -19,6 +19,7 @@
 
 img {
     vertical-align: unset;
+    cursor: pointer;
 }
 
 .card-header,

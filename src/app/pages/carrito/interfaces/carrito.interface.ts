@@ -4,7 +4,8 @@ export interface Carrito {
     nombre_articulo: string ,
     cantidad: number,
     imagen: string,
-    estado: number
+    estado: number,
+    max_stock: number
 }
 
 export interface CarritoState{

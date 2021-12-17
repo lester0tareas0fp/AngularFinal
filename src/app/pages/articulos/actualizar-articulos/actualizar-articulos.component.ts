@@ -238,7 +238,8 @@ export class ActualizarArticulosComponent implements OnInit {
       nombre_articulo: this.articulo.articulo,
       cantidad: this.actualizarArticuloForm.get('anadir')?.value,
       imagen: this.imagen.imagen,
-      estado: this.articulo.iD_ESTADO_ARTICULO
+      estado: this.articulo.iD_ESTADO_ARTICULO,
+      max_stock: this.max
     }
 
     if( carrito.cantidad == 0)

@@ -28,7 +28,28 @@ img {
     color: white;
 }
 
+button:hover .fas,
 .fas:hover {
     cursor: pointer;
     color: red;
+}
+
+.minus,
+.plus {
+    border-style: none;
+    background-color: white;
+}
+
+b {
+    box-shadow: 2px 2px 2px rgb(128, 128, 128);
+}
+
+.inactivo {
+    color: red;
+    font-weight: bold;
+}
+
+.activo {
+    color: rgb(45, 155, 0);
+    font-weight: bold;
 }

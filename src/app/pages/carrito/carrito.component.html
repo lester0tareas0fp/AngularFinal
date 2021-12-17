@@ -7,10 +7,13 @@
             <div class="row">
                 <div class="col-3">
                 </div>
-                <div class="col-3 text-center">
+                <div class="col-2 text-center">
                     Cantidad
                 </div>
-                <div class="col-6">
+                <div class="col-3">
+
+                </div>
+                <div class="col-4">
                     Artículo
                 </div>
             </div>
@@ -21,19 +24,30 @@
 
             <div class="row" *ngFor="let carrito of carritos">
 
-                <div class="col-3 text-center">
+                <div class="col-3">
+                    <p [ngClass]="carrito.estado == 1? '':'d-none '" class="activo">Disponible</p>
+                    <p [ngClass]="carrito.estado == 2? '':'d-none '" class="inactivo"> Últimas unidades</p>
+                </div>
+
+                <div class="col-2 text-center">
                     <img [src]="carrito.imagen" width="50px" height="50px" [routerLink]="['/articulos/actualizar']" [queryParams]="{id_articulo: carrito.id_articulo}" routerLinkActive="true">
                 </div>
 
                 <div class="col-3 text-center">
-                    <i class="fas fa-minus" (click)="restar(carrito.id_articulo)"></i> <b> / {{ cantidad[carrito.id_articulo] }} / </b> <i class="fas fa-plus" (click)="sumar(carrito.id_articulo)"></i>
+                    <button class="minus" (click)="restar(carrito.id_articulo)">
+                        <i class="fas fa-minus" ></i>
+                    </button>
+                    <b>  {{ cantidad[carrito.id_articulo] }}  </b>
+                    <button class="plus" (click)="sumar(carrito.id_articulo)">
+                        <i class="fas fa-plus" ></i>
+                    </button>
                 </div>
 
                 <div class="col-3">
                     {{ carrito.nombre_articulo }}
                 </div>
 
-                <div class="col-3">
+                <div class="col-1">
                     <i class="fas fa-trash-alt" (click)="eliminarArticulo(carrito.id_articulo)"></i>
                 </div>
 
@@ -53,14 +67,14 @@
 
                 <div class="col-9">
                     <button type="button" class="btn btn-success float-end" [routerLink]="['/crear-pedido']" routerLinkActive="true">
-               Crear pedido
-        </button>
+                        Crear pedido
+                    </button>
                 </div>
 
                 <div class="col-3">
                     <button type="button" class="btn btn-danger" (click)="vaciarCarrito()">
-                Vaciar carrito
-        </button>
+                            Vaciar carrito
+                    </button>
                 </div>
 
             </div>

@@ -47,8 +47,7 @@ export class CarritoComponent implements OnInit {
   {
 
     let cantidad = this.cantidad[id_articulo] + 1;
-    console.log(cantidad)
-    this.store.dispatch( cambiarCantidad({id_articulo, cantidad }));
+    let articuloCesta: Carrito[];
 
     this.subscription = this.store.select('ca').subscribe( ca =>
       {
@@ -58,19 +57,28 @@ export class CarritoComponent implements OnInit {
 
     this.subscription.unsubscribe();
 
-    this.carritos.forEach( carrito => 
-      {
-        this.cantidad[carrito.id_articulo] = carrito.cantidad;
-      })
+    articuloCesta = this.carritos.filter( carrito => carrito.id_articulo == id_articulo);
+
+    if (cantidad >= articuloCesta[0].max_stock)
+    {
+      cantidad = articuloCesta[0].max_stock;
+    }
+
+    this.store.dispatch( cambiarCantidad({id_articulo, cantidad }));
+
+    this.cantidad[id_articulo] = cantidad;
 
   }
 
   restar(id_articulo: number)
   {
 
+    if(this.cantidad[id_articulo] <= 1){
+      this.cantidad[id_articulo] = 1;
+      return;
+    }
+
     let cantidad = this.cantidad[id_articulo] - 1;
-    console.log(cantidad)
-    this.store.dispatch( cambiarCantidad({id_articulo, cantidad }));
 
     this.subscription = this.store.select('ca').subscribe( ca =>
       {
@@ -80,10 +88,9 @@ export class CarritoComponent implements OnInit {
 
     this.subscription.unsubscribe();
 
-    this.carritos.forEach( carrito => 
-      {
-        this.cantidad[carrito.id_articulo] = carrito.cantidad;
-      })
+    this.store.dispatch( cambiarCantidad({id_articulo, cantidad }));
+
+    this.cantidad[id_articulo] = cantidad;
 
   }
 
